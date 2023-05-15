@@ -1,10 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Login</title>
   </head>
-  <body></body>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="../styling/styledaftar.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+  <style>
+    * {
+      /* border: 1px solid black; */
+    }
+  </style>
+
+  <body>
+    <section class="regis-akun">
+      <img src="../img-stocks/logo.png" alt="" class="logo align-self-center mt-3 mb-3" />
+      <form action="" class="regis-akun">
+        <div class="d-flex align-items-center justify-content-evenly text-center">
+          <div class="bungkus h-50 w-50">Daftar dulu yaa..</div>
+          <img src="../img-stocks/maskot.png" alt="" class="maskot w-25" />
+        </div>
+        <div class="align-items-center">
+          <div class="col-auto">
+            <label for="inputEmail" class="col-form-label">Email : </label>
+          </div>
+          <div class="col-auto">
+            <input type="email" id="inputEmail" class="form-control" />
+          </div>
+        </div>
+
+        <div class="align-items-center">
+          <div class="col-auto">
+            <label for="inputPassword" class="col-form-label">Password : </label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="inputPassword" class="form-control" />
+          </div>
+        </div>
+
+        <div class="align-items-center">
+          <div class="col-auto">
+            <label for="ulangiPassword" class="col-form-label">Ulangi Password : </label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="ulangiPassword" class="form-control" />
+          </div>
+        </div>
+
+        <input class="btn btn-warning mt-3 text-white text-center" type="submit" value="Cek" />
+      </form>
+    </section>
+
+    <section class="regis-bio">
+      <form action="" class="regis-bio container-fluid">
+        <div class="align-items-center">
+          <div class="col-auto">
+            <label for="inputNama" class="col-form-label">Nama : </label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="inputNama" class="form-control" />
+          </div>
+        </div>
+
+        <div class="g-1 align-items-center mt-2">
+          <div class="col-auto">
+            <label for="inputUsia" class="col-form-label">Usia : </label>
+          </div>
+          <div class="col-auto">
+            <input type="number" id="inputUsia" class="form-control" />
+          </div>
+
+          <div class="csol-auto">
+            <span id="Usia" class="form-text">Tahun</span>
+          </div>
+        </div>
+
+        <div class="align-items-center">
+          <div class="col-auto">
+            <label for="inputJK" class="col-form-label">Jenis Kelamin : </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inputJK" value="option1" />
+            <label class="form-check-label" for="inputJK">Laki - laki</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+            <label class="form-check-label" for="inlineRadio2">Perempuan</label>
+          </div>
+        </div>
+
+        <div class="align-items-center">
+          <div class="col-auto">
+            <label for="inputNoHp" class="col-form-label">No. Handphone : </label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="inputNoHp" class="form-control" />
+          </div>
+        </div>
+
+        <div class="align-items-center">
+          <div class="col-auto">
+            <label for="inputAlamat" class="col-form-label">Alamat : </label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="inputAlamat" class="form-control" />
+          </div>
+        </div>
+
+        <input class="btn btn-warning mt-3 text-white text-center" type="submit" value="Daftar" />
+      </form>
+    </section>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script>
+      const sr = ScrollReveal({
+        distance: "65px",
+        duration: 1600,
+        delay: 250,
+        reset: true,
+      });
+      const sr2 = ScrollReveal({
+        distance: "0px",
+        duration: 1600,
+        delay: 150,
+        reset: true,
+      });
+
+      sr2.reveal("form.regis-bio", { delay: 150, origin: "top" });
+      sr2.reveal("img", { delay: 900, origin: "top" });
+      sr2.reveal(".logo", { delay: 300, origin: "top" });
+      sr2.reveal(".bungkus", { delay: 1500, origin: "top" });
+    </script>
+  </body>
 </html>
