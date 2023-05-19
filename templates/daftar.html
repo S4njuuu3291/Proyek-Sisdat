@@ -56,9 +56,10 @@
 
         <input class="btn btn-warning mt-3 text-white text-center" type="submit" value="Cek" />
       </form>
+      <a href="#regisBio" class="btn btn-warning mt-3 text-center">V</a>
     </section>
 
-    <section class="regis-bio">
+    <section class="regis-bio" id="regisBio">
       <form action="" class="regis-bio container-fluid">
         <div class="align-items-center">
           <div class="col-auto">
@@ -133,7 +134,7 @@
         reset: true,
       });
 
-      sr2.reveal("form.regis-bio", { delay: 150, origin: "top" });
+      sr2.reveal("form.regis-bio", { delay: 50, origin: "top" });
       sr2.reveal("img", { delay: 900, origin: "top" });
       sr2.reveal(".logo", { delay: 300, origin: "top" });
       sr2.reveal(".bungkus", { delay: 1500, origin: "top" });
