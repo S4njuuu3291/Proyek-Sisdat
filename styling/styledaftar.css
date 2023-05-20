@@ -7,8 +7,6 @@ a {
   /* border: 1px solid black;  */
 }
 
-body {
-}
 section {
   min-height: 100vh;
   display: flex;
@@ -66,9 +64,6 @@ form.regis-bio {
 
 form.regis-akun .form-control {
   width: 290px;
-}
-
-form.regis-akun input {
 }
 
 form.regis-bio .form-control {
