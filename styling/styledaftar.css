@@ -20,7 +20,6 @@ section.regis-akun {
   align-items: center;
   justify-content: center;
   background: url(../img-stocks/wepik-yellow-black-and-gray-geometric-background-2023051305575054I2.png) no-repeat center center/cover;
-  min-height: 100vh;
   overflow: visible;
 }
 
@@ -30,9 +29,7 @@ img.maskot {
 }
 
 section.regis-akun .logo {
-  position: absolute;
   max-width: 15vw;
-  transform: rotate(30deg) translateX(100px) translateY(-300px);
 }
 form.regis-akun,
 .bungkus {

@@ -54,12 +54,10 @@
           </div>
         </div>
 
-        <input class="btn btn-warning mt-3 text-white text-center" type="submit" value="Cek" />
+        <button type="submit" class="btn btn-warning mt-3 text-white text-center" onclick="submitFormAndScroll(event)">Cek</button>
+        <!-- <input class="btn btn-warning mt-3 text-white text-center" type="submit" value="Cek" /> -->
       </form>
-      <a href="#regisBio" class="btn btn-warning mt-3 text-center">V</a>
-    </section>
 
-    <section class="regis-bio" id="regisBio">
       <form action="" class="regis-bio container-fluid">
         <div class="align-items-center">
           <div class="col-auto">
@@ -118,6 +116,7 @@
         <input class="btn btn-warning mt-3 text-white text-center" type="submit" value="Daftar" />
       </form>
     </section>
+
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <script>
@@ -128,16 +127,29 @@
         reset: true,
       });
       const sr2 = ScrollReveal({
-        distance: "0px",
+        distance: "100px",
         duration: 1600,
         delay: 150,
         reset: true,
       });
 
-      sr2.reveal("form.regis-bio", { delay: 50, origin: "top" });
-      sr2.reveal("img", { delay: 900, origin: "top" });
-      sr2.reveal(".logo", { delay: 300, origin: "top" });
-      sr2.reveal(".bungkus", { delay: 1500, origin: "top" });
+      sr.reveal("form.regis-bio", { delay: 50, origin: "right" });
+      sr.reveal("form.regis-akun", { delay: 50, origin: "left" });
+      sr.reveal("img", { delay: 100, origin: "top" });
+      sr.reveal(".logo", { delay: 200, origin: "top" });
+      sr.reveal(".bungkus", { delay: 150, origin: "top" });
+
+      // function submitFormandScroll(event) {
+      //   // const form = document.getElementsByClassName("regis-bioX");
+      //   event.preventDefault();
+
+      // }
+      function submitFormAndScroll(event) {
+        const form = document.querySelectorAll("form");
+        form.event.preventDefault();
+        const regisBio = document.getElementById("regisBio");
+        regisBio.scrollIntoView({ behavior: "smooth" });
+      }
     </script>
   </body>
 </html>
