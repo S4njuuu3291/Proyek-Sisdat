@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title> 
+    <title>Document</title>
     <link rel="stylesheet" href="../styling/stylebarang.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -46,7 +46,7 @@
       <div class="profile" onclick="menuToggle();">
         <img src="../img-stocks/user.png" alt="">
       </div>
-      <div class="menu" >
+      <div class="menu " >
         <h3>
           Sanjuuuu
         </h3>
@@ -60,41 +60,43 @@
       </div>
     </div>
     
-    <h3 class="mt-4 text-center">Barang :D</h3>
+    <h3 class="mt-4 text-center">Admin :D</h3>
     
-    <div class="container-fluid container-tabel mb-4 p-3 ">
+    <div class="container-fluid container-tabel mb-4 p-3">
       <table id="myTable" class="table table-striped">
         <thead>
             <tr>
-                <th>ID Barang</th>
-                <th>ID Customer</th>
-                <th>Alamat Penerima</th>
-                <th>Nama Penerima</th>
-                <th>No. Hp Penerima</th>
-                <th>Tanggal Kirim</th>
-                <th>Tanggal Sampai</th>
-                <th>ID Kurir</th>
-                <th>ID Gudang</th>
-                <th>Status Barang</th>
-                <th>Edit</th>
+              <th>ID Barang</th>
+              <th>ID Customer</th>
+              <th>Alamat Penerima</th>
+              <th>Nama Penerima</th>
+              <th>No. Hp Penerima</th>
+              <th>Tanggal Kirim</th>
+              <th>Tanggal Sampai</th>
+              <th>ID Kurir</th>
+              <th>ID Gudang</th>
+              <th>Status</th>
+              <th>Edit :)</th>
             </tr>
         </thead>
         <tbody>
-            <tr data-id="1">
-                <td>12389025784234</td>
-                <td>23489234723423</td>
-                <td>Jln. Hegarmanah YTTA</td>
-                <td>Ayang :)</td> 
-                <td>081262017833</td>
-                <td>23/04/23 09.23 WIB</td> 
-                <td>Belum cuy</td> 
-                <td>64522424344235</td>
-                <td>32489772435</td>
-                <td>Sedang transit di gudang 32489772435</td>
-                <td><button class="btn btn-primary btn-sm btn-edit">Edit</button>
-                <button class="btn btn-danger btn-sm btn-delete mt-1">Delete</button>
-                </td>
-            </tr>
+          <tr data-id="1">
+            <td>12389025784234</td>
+            <td>34526978936243</td>
+            <td>Jln. Hegarmanah YTTA</td>
+            <td>Kintil</td>
+            <td>081262017833</td>
+            <td>23/05/2023 09.33</td> 
+            <td>28/05/2023 10.45</td>
+            <td>487569789579834</td>
+            <td>987645837683456</td>
+            <td>Transit di gudang A</td>
+            <td><button class="btn btn-primary btn-sm btn-edit">Edit</button>
+            <button class="btn btn-danger btn-sm mt-1 btn-delete">Delete</button>
+            </td>
+          </tr>
+          
+          
         </tbody>
     </table>
 </div>
@@ -111,12 +113,12 @@
         <form id="editAIDI" class="modal-split">
           <div class="left-column">
             <div class="mb-2">
-              <label for="editIDBarang" class="form-label">ID Barang:</label>
-              <input type="text" class="form-control" id="editIDBarang" readonly>
+              <label for="editidBarang" class="form-label">ID Barang:</label>
+              <input type="text" class="form-control" id="editidBarang" readonly>
             </div>
             <div class="mb-2">
-              <label for="editIDCust" class="form-label">ID Customer:</label>
-              <input type="text" class="form-control" id="editIDCust" readonly>
+              <label for="editidCustomer" class="form-label">ID Customer:</label>
+              <input type="text" class="form-control" id="editidCustomer" readonly>
             </div>
             <div class="mb-2">
               <label for="editAlamat" class="form-label">Alamat Penerima:</label>
@@ -170,23 +172,9 @@
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 
-<script>
-  function menuToggle(){
-    const toggleMenu = document.querySelector('.menu');
-    toggleMenu.classList.toggle('active');
-  }
-
-  function modalToggle(){
-    const section = document.querySelector("section"),
-      overlay = document.querySelector(".overlay"),
-      showBtn = document.querySelector(".show-modal"),
-      closeBtn = document.querySelector(".close-btn");
-
-    section.classList.toggle('active2')
-    overlay.classList.toggle('active2')
-    closeBtn.classList.toggle('active2')
-  } 
-$(document).ready(function() {
+  <script>
+  
+  $(document).ready(function() {
     var table = $('#myTable').DataTable();
 
     // Edit Button Click
@@ -196,8 +184,8 @@ $(document).ready(function() {
         var data = table.row(row).data();
 
         $('#editAIDI').val(aidi);
-        $('#editIDBarang').val(data[0]);
-        $('#editIDCust').val(data[1]);
+        $('#editidBarang').val(data[0]);
+        $('#editidCustomer').val(data[1]);
         $('#editAlamat').val(data[2]);
         $('#editNama').val(data[3]);
         $('#editNoHp').val(data[4]);
@@ -211,44 +199,60 @@ $(document).ready(function() {
 
     // Save Changes Button Click
     $('#saveChanges').on('click', function() {
-        var id = $('#editID').val();
-        var IDBarang = $('#editIDBarang').val();
-        var IDCust = $('#editIDCust').val();
-        var Alamat = $('#editAlamat').val();
-        var Nama = $('#editNama').val();
-        var NoHp = $('#editNoHp').val();
-        var TglKirim = $('#editTglKirim').val();
-        var TglSampai = $('#editTglSampai').val();
-        var IDKurir = $('#editIDKurir').val();
-        var IDGudang = $('#editIDGudang').val();
+        var aidi = $('#editAIDI').val();
+        var id = $('#editidBarang').val();
+        var idCustomer = $('#editidCustomer').val();
+        var alamat = $('#editAlamat').val();
+        var nama = $('#editNama').val();
+        var noHp = $('#editNoHp').val();
+        var tglKirim = $('#editTglKirim').val();
+        var tglSampai = $('#editTglSampai').val();
+        var idKurir = $('#editIDKurir').val();
+        var idGudang = $('#editIDGudang').val();
         var status = $('#status').val();
 
         var row = table.row('tr[data-id="' + aidi + '"]');
         var rowData = row.data();
 
-        rowData[1] = IDCust;
-        rowData[2] = Alamat;
-        rowData[3] = Nama;
-        rowData[4] = NoHp;
-        rowData[5] = TglKirim;
-        rowData[6] = TglSampai;
-        rowData[7] = IDKurir;
-        rowData[8] = IDGudang;
+        rowData[1] = idCustomer;
+        rowData[2] = alamat;
+        rowData[3] = nama;
+        rowData[4] = noHp;
+        rowData[5] = tglKirim;
+        rowData[6] = tglSampai;
+        rowData[7] = idKurir;
+        rowData[8] = idGudang;
         rowData[9] = status;
 
         row.data(rowData).draw();
 
         $('#editModal').modal('hide');
     });
-
     $('#myTable').on('click', '.btn-delete', function() {
       var row = $(this).closest('tr');
       deleteRow = row;
       table.row(deleteRow).remove().draw();
-
+    
       $('#confirmModal').modal('show');
     });
-});
+  });
 
-</script>
+function menuToggle(){
+      const toggleMenu = document.querySelector('.menu');
+      toggleMenu.classList.toggle('active');
+    }
+
+    function modalToggle(){
+      const section = document.querySelector("section"),
+        overlay = document.querySelector(".overlay"),
+        showBtn = document.querySelector(".show-modal"),
+        closeBtn = document.querySelector(".close-btn");
+  
+      section.classList.toggle('active2')
+      overlay.classList.toggle('active2')
+      closeBtn.classList.toggle('active2')
+    }
+
+  </script>
 </html>
+

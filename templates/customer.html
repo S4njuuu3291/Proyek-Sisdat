@@ -187,11 +187,10 @@
 
     $(document).ready(function() {
       var table = $('#myTable').DataTable();
-    });
-  
-    $('#myTable').on('click', '.btn-edit', function() {
+      
+      $('#myTable').on('click', '.btn-edit', function() {
       var row = $(this).closest('tr');
-        var aidi = row.data('id');
+      var aidi = row.data('id');
         var data = table.row(row).data();
 
         $('#editAIDI').val(aidi);
@@ -210,34 +209,35 @@
       var aidi = $('#editAIDI').val();
       var nama = $('#editNama').val();
       var usia = $('#editUsia').val();
+      var gender = $('#editGender').val();
       var noHp = $('#editNoHp').val();
       var alamat = $('#editAlamat').val();
       var email = $('#editEmail').val();
-      var gender = $('#editGender').val();
-
+      
       var row = table.row('tr[data-id="' + aidi + '"]');
       var rowData = row.data();
-
+      
       rowData[1] = nama;
       rowData[2] = usia;
       rowData[3] = gender;
       rowData[4] = noHp;
       rowData[5] = alamat;
       rowData[6] = email;
-
+      
       row.data(rowData).draw();
-
+      
       $('#editModal').modal('hide');
     });
-  
+    
     $('#myTable').on('click', '.btn-delete', function() {
       var row = $(this).closest('tr');
       deleteRow = row;
       table.row(deleteRow).remove().draw();
-
+      
       $('#confirmModal').modal('show');
     });
-</script>
+  });
+  </script>
   
   
 </html>
