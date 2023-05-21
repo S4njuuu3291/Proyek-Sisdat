@@ -4,6 +4,7 @@
 
 body {
   background: url(../img-stocks/wepik3.png) no-repeat center/cover;
+  height: 100vh;
   /* opacity: 0.4; */
 }
 
@@ -169,6 +170,10 @@ nav ul li a:hover {
   transition: 0.5s;
 }
 
+.head-tabel {
+  width: 100%;
+}
+
 .action .menu ul li:hover img {
   opacity: 1;
 }
@@ -217,13 +222,14 @@ ul.container-fluid .head-tabel {
   border: 1px solid rgb(0, 149, 255);
   background-color: white;
   border-radius: 10px;
-  width: 100%;
+  width: 80vw;
   text-align: center;
   padding: 10px;
   margin-bottom: 13px;
 }
 .tentang-barang .tentang-barang-isi {
   display: flex;
+  min-width: 100%;
 }
 
 .id_barang {
