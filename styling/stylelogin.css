@@ -7,8 +7,10 @@ a {
 }
 
 body {
-  background: url(../img-stocks/wepik-yellow-black-and-gray-geometric-background-2023051305575054I2.png) no-repeat center center/cover;
+  background: url(../img-stocks/wepik3.png) no-repeat center center/cover;
+  /* background: linear-gradient(18deg, #f1fafb 0%, #a0e4f1 100%); */
   min-height: 100vh;
+  display: flex;
 }
 
 .form-control {
@@ -16,9 +18,14 @@ body {
   border-color: rgb(90, 90, 90);
 }
 
+.form-control:focus {
+  outline-color: rgb(255, 183, 0); /* Ganti dengan warna yang diinginkan */
+  border-color: rgb(255, 183, 0); /* Ganti dengan warna yang diinginkan */
+  box-shadow: 0 0 0 0.2rem rgba(255, 221, 3, 0.25); /* Ganti dengan warna yang diinginkan */
+}
+
 .form-floating label {
   border-radius: 10px; /* Mengatur radius sudut pada label */
-  color: rgb(92, 68, 24);
 }
 
 section {
@@ -28,18 +35,16 @@ section {
   align-content: center;
   justify-content: center;
 }
-section .logo {
-  height: 100px;
-}
 
 .form-container {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin: 0 auto;
+  margin: auto;
   flex-direction: row;
   background-color: white;
-  padding: 2rem 20vw;
+  padding: 1.5rem 0;
+  max-width: 800px;
   width: 800px;
   border-radius: 20px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
@@ -47,11 +52,16 @@ section .logo {
 }
 
 .logo-img {
-  animation: floating 2s ease-in-out infinite;
+  width: 30%;
+}
+.logo-img .logo {
+  height: 70px;
 }
 
-.logo-img img {
-  height: 320px;
+.logo-img .maskot {
+  width: 100%;
+  height: auto;
+  animation: floating 2s ease-in-out infinite;
 }
 
 @keyframes floating {
@@ -59,7 +69,7 @@ section .logo {
     transform: translatey(0px);
   }
   50% {
-    transform: translatey(-20px);
+    transform: translatey(-30px);
   }
   100% {
     transform: translatey(0px);
@@ -67,13 +77,11 @@ section .logo {
 }
 
 .form-login {
-  border: 1px solid orange;
+  border: 1px solid rgb(21, 100, 103);
   border-radius: 30px;
   color: rgb(175, 114, 1);
 }
 
-.form-login input {
-}
 .shadow-img {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
 }
@@ -83,4 +91,35 @@ section .logo {
 }
 .logo-img {
   display: flex;
+}
+
+input.btn {
+  background-color: #00bbff;
+}
+input.btn:hover {
+  background-color: rgb(3, 117, 135);
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-toggle i {
+  color: #999;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-toggle i {
+  color: #999;
 }

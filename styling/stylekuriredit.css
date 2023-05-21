@@ -3,8 +3,7 @@
 }
 
 body {
-  background: url(../img-stocks/wepik3.png) no-repeat center/cover;
-  /* opacity: 0.4; */
+  background: url(../img-stocks/wepik3.png) center center/cover;
 }
 
 .background::after {
@@ -37,7 +36,7 @@ nav {
   background-color: white;
   border-bottom-right-radius: 40px;
   border-bottom-left-radius: 40px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
 nav .logoS {
@@ -193,7 +192,7 @@ ul.container-fluid {
   align-items: center;
   padding: 0px;
   background-color: white;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 2px 2px 3px rgba(0, 0, 0, 0.4);
   padding: 1px 20px 20px;
   margin-bottom: 2rem;
 }
@@ -228,18 +227,27 @@ ul.container-fluid .head-tabel {
 
 .id_barang {
   width: 15%;
+  margin-right: 10px;
 }
 
 .tanggal_kirim {
+  margin-right: 10px;
+
   width: 15%;
+}
+.tanggal_sampai {
+  width: 15%;
+  margin-right: 10px;
 }
 
 .alamat {
-  width: 45%;
+  width: 35%;
+  margin-right: 10px;
 }
 
 .status_barang {
-  width: 25%;
+  width: 21%;
+  margin-right: 10px;
 }
 
 .modal-dialog.my-custom-dialog {
@@ -256,4 +264,16 @@ ul.container-fluid .head-tabel {
 
 .btn.util-blue:hover {
   background-color: #555;
+}
+
+button.btn-ceklis {
+  font-size: 14px;
+  text-align: center;
+  padding: 3px 8px;
+  color: #ffffff;
+  background-color: rgba(11, 225, 11, 0.743);
+}
+button.btn-ceklis:hover {
+  background-color: #179903;
+  color: #fff;
 }

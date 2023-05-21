@@ -31,10 +31,12 @@ nav {
   display: flex;
   width: 100%;
   margin: auto;
-  justify-content: space-evenly;
-  height: 70px;
+  justify-content: center;
+  height: 75px;
   background-color: white;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
 nav .logoS {
@@ -116,6 +118,7 @@ nav ul li a:hover {
   transition: 0.5s;
   visibility: hidden;
   opacity: 0;
+  z-index: 999999;
   display: flex;
   align-items: center;
   flex-direction: column;

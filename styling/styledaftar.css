@@ -6,18 +6,14 @@ a {
   font-family: "Poppins", sans-serif;
   /* border: 1px solid black;  */
 }
-
-section {
-  min-height: 100vh;
-  display: flex;
+body {
+  background: url(../img-stocks/wepik-yellow-black-and-gray-geometric-background-2023051305575054I2.png) no-repeat center center/cover;
 }
-
-section.regis-akun {
+section.regis {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: url(../img-stocks/wepik-yellow-black-and-gray-geometric-background-2023051305575054I2.png) no-repeat center center/cover;
   overflow: visible;
 }
 
@@ -26,17 +22,23 @@ img.maskot {
   z-index: 1;
 }
 
-section.regis-akun .logo {
-  max-width: 15vw;
+section.regis .logo {
+  max-width: 25vw;
 }
-form.regis-akun,
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.regis-akun,
 .bungkus {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  padding: 20px 30px;
-  justify-content: center;
-
+  padding: 40px 30px;
+  justify-content: space-evenly;
   align-items: center;
   width: 400px;
   border-color: skyblue;
@@ -46,28 +48,14 @@ form.regis-akun,
   overflow: visible;
 }
 
-section.regis-bio {
-  min-height: 100vh;
-  background: url(../img-stocks/wepik3.png) no-repeat center center/cover;
+.regis1 .tingginya {
+  height: 10%;
+  padding: 0;
 }
 
-form.regis-bio {
-  border: 1px solid black;
+form .regis1 {
   display: flex;
   flex-direction: column;
-  margin: 40px auto;
-  padding: 20px 30px;
-  width: 465px;
-  border-radius: 30px;
-  border-color: orange;
-}
-
-form.regis-akun .form-control {
-  width: 290px;
-}
-
-form.regis-bio .form-control {
-  width: 400px;
 }
 
 section .btn {
@@ -80,4 +68,9 @@ img.pemanis {
   z-index: 999;
   right: 0;
   bottom: 0;
+}
+
+.scroll-down {
+  /* transform: translateX(-50%); */
+  font-size: 24px;
 }

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../styling/stylingpaketcust.css" />
+    <link rel="stylesheet" href="../styling/stylekuriredit.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,8 +30,7 @@
         <img src="../img-stocks/anterinaja.png" class="logo" />
       </a>
       <ul>
-        <li><a href="../templates/paketcust.html">Paket Saya</a></li>
-        <li><a href="../templates/riwayat.html">Riwayat</a></li>
+        <li><a href="../templates/kuriredit.html">Paket Antar</a></li>
         <li><a href="#">Hubungi</a></li>
         <li><a href="#">FAQ</a></li>
       </ul>
@@ -57,12 +56,13 @@
 
     <!-- Barangan -->
     <div class="title-barangan mt-4 text-center">
-      <h3 class="">Paket On-going :D</h3>
+      <h3 class="">Paket :D </h3>
     </div>
     <ul class="list-group container-fluid mt-4">
       <li class="head-tabel m-4">
           <span class="id_barang">ID Barang</span>
           <span class="tanggal_kirim">Tanggal Kirim</span>
+          <span class="tanggal_sampai">Tanggal Sampai</span>
           <span  class="alamat">Alamat Penerima</span>
           <span class="status_barang">Status Barang</span>
       </li>
@@ -73,15 +73,19 @@
 
               <span class="id_barang">13478923888A78</span>
               <span class="tanggal_kirim">24/05/23 09.35 WIB</span>
+              <span class="tanggal_sampai">27/09/23 19.35 WIB</span>
               <span class="alamat">
                 Jln. Jalan Kenangan No.324 Warung Terizla Land Of Dawn
               </span>
-              <span class="status_barang">Sudah keluar dari gudang 12A42</span>
+              <span class="status_barang status_barang_isi">Sudah keluar dari gudang 12A42</span>
             </div>
 
           <button type="button" class="btn text-white util-blue mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Detail Lengkap >
           </button>
+
+          <button type="button" class="btn btn-ceklis  mt-2 " onclick="tandaiSelesai()">Tandai Selesai
+          <i class="fa fa-check-circle"></i></button>
       
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered  my-custom-dialog">
@@ -131,71 +135,6 @@
           
       </div>
       </li>
-      <li class="">
-        <div class="tentang-barang">
-            <div class="tentang-barang-isi">
-
-              <span class="id_barang">13478923888A78</span>
-              <span class="tanggal_kirim">24/05/23 09.35 WIB</span>
-              <span class="alamat">
-                Jln. Jalan Kenangan No.324 Warung Terizla Land Of Dawn
-              </span>
-              <span class="status_barang">Sudah keluar dari gudang 12A42</span>
-            </div>
-
-          <button type="button" class="btn text-white util-blue mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Detail Lengkap >
-          </button>
-      
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered  my-custom-dialog">
-              <div class="modal-content ">
-                <div class="modal-header text-center d-flex justify-content-center">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Paket 13478923888A78</h1>
-                  
-                </div>
-                <div class="modal-body">
-      
-                  <ul class="list-group list-group-horizontal">
-                    <li class="list-group w-50 mt-3">ID Barang :</li>
-                    <li class="list-group w-75 mt-3">134789238888A78</li>
-                  </ul>
-                  <ul class="list-group list-group-horizontal-sm">
-                    <li class="list-group w-50 mt-3">Nama Penerima :</li>
-                    <li class="list-group w-75 mt-3">Mang Rusdi</li>
-                  </ul>
-                  <ul class="list-group list-group-horizontal-sm">
-                    <li class="list-group w-50 mt-3">Alamat Penerima :</li>
-                    <li class="list-group w-75 mt-3">Ngawi</li>
-                  </ul>
-                  <ul class="list-group list-group-horizontal-sm">
-                    <li class="list-group w-50 mt-3">No. HP Penerima :</li>
-                    <li class="list-group w-75 mt-3">08133366789</li>
-                  </ul>
-                  <ul class="list-group list-group-horizontal-sm">
-                    <li class="list-group w-50 mt-3">Status Barang :</li>
-                    <li class="list-group w-75 mt-3">Hilang :(</li>
-                  </ul>
-                  <ul class="list-group list-group-horizontal-sm">
-                    <li class="list-group w-50 mt-3">Tanggal Kirim :</li>
-                    <li class="list-group w-75 mt-3">23-05-2023 09.78 WIB</li>
-                  </ul>
-                  <ul class="list-group list-group-horizontal-sm">
-                    <li class="list-group w-50 mt-3">Tanggal Sampai :</li>
-                    <li class="list-group w-75 mt-3">Nggak tau</li>
-                  </ul>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-          
-      </div>
-      </li>
-     
 
     </ul>
 
@@ -203,6 +142,14 @@
 
 
   <script>
+    function tandaiSelesai() {
+    var statusBarang = document.querySelector(".status_barang_isi");
+    var ceklisHijau = document.createElement("i");
+    ceklisHijau.classList.add("fas", "fa-check", "text-success", "ms-2");
+    
+    statusBarang.textContent = "Barang sudah sampai ke tujuan";
+    statusBarang.appendChild(ceklisHijau);
+  }
     const sr = ScrollReveal({
       distance: "165px",
       duration: 1600,
