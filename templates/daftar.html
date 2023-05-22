@@ -23,7 +23,7 @@
   <body>
     <section class="regis">
       <img src="../img-stocks/anterinaja.png" alt="" class="logo align-self-center mt-3 mb-3" />
-      <form action="" class="">
+      <form action="../connector/connector.php" class="regis-akun" method="post">
         <section class="regis1 regis-akun">
           <div class="d-flex align-items-center justify-content-evenly text-center">
             <div class="bungkus h-25 w-50 tingginya">Daftar dulu yaa..</div>
@@ -34,7 +34,7 @@
               <label for="inputEmail" class="col-form-label">Email : </label>
             </div>
             <div class="col-auto">
-              <input type="email" id="inputEmail" class="form-control" />
+              <input type="email" id="inputEmail" class="form-control" name="email"/>
             </div>
           </div>
 
@@ -43,7 +43,7 @@
               <label for="inputPassword" class="col-form-label">Password : </label>
             </div>
             <div class="col-auto">
-              <input type="text" id="inputPassword" class="form-control" />
+              <input type="text" id="inputPassword" class="form-control" name="password"/>
             </div>
           </div>
 
@@ -64,7 +64,7 @@
               <label for="inputNama" class="col-form-label">Nama : </label>
             </div>
             <div class="col-auto">
-              <input type="text" id="inputNama" class="form-control" />
+              <input type="text" id="inputNama" class="form-control" name="nama"/>
             </div>
           </div>
 
@@ -73,7 +73,7 @@
               <label for="inputUsia" class="col-form-label">Usia : </label>
             </div>
             <div class="col-auto">
-              <input type="number" id="inputUsia" class="form-control" />
+              <input type="number" id="inputUsia" class="form-control" name="usia"/>
             </div>
 
             <div class="csol-auto">
@@ -86,11 +86,11 @@
               <label for="inputJK" class="col-form-label">Jenis Kelamin : </label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inputJK" value="option1" />
+              <input class="form-check-input" type="radio" name="gender" id="inputJK" value="L" />
               <label class="form-check-label" for="inputJK">Laki - laki</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+              <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="P" />
               <label class="form-check-label" for="inlineRadio2">Perempuan</label>
             </div>
           </div>
@@ -100,7 +100,7 @@
               <label for="inputNoHp" class="col-form-label">No. Handphone : </label>
             </div>
             <div class="col-auto">
-              <input type="text" id="inputNoHp" class="form-control" />
+              <input type="text" id="inputNoHp" class="form-control" name="no_Hp"/>
             </div>
           </div>
 
@@ -109,7 +109,7 @@
               <label for="inputAlamat" class="col-form-label">Alamat : </label>
             </div>
             <div class="col-auto">
-              <input type="text" id="inputAlamat" class="form-control" />
+              <input type="text" id="inputAlamat" class="form-control" name="alamat"/>
             </div>
           </div>
 

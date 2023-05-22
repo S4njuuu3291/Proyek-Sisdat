@@ -11,39 +11,38 @@
 
   <link rel="stylesheet" href="../styling/stylelogin.css" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
   <style>
-    /* * {
-      border: 1px solid black;
-    } */
+    * {
+      /* border: 1px solid black; */
+    }
   </style>
 
   <body>
     <section class="container-fluid text-center">
+      <img src="../img-stocks/logo.png" alt="" class="logo align-self-center mt-3 mb-3" />
       <div class="form-container">
         <div class="form-login">
-          <form action="" class="d-flex flex-column align-items-center m-lg-auto p-4">
+          <form action="../connector/con_login.php" class="d-flex flex-column align-items-center m-lg-auto p-4" method="post">
+            <?php if (isset($_GET['error'])){ ?>
+              <p class="error"><?php echo $_GET['error']; ?></p> 
+            <?php } ?>
             <div class="inputan form-floating mb-3 mt-3">
-              <input type="email" class="form-control" id="floatingInput" placeholder="anakbaik123" />
+              <input type="email" class="form-control" id="floatingInput" placeholder="anakbaik123" name="email"/>
               <label for="floatingInput">Email</label>
             </div>
             <div class="inputan form-floating mb-3">
-              <input type="password" class="form-control" id="floatingPassword" placeholder="Password" />
+              <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password"/>
               <label for="floatingPassword">Password</label>
-              <span class="password-toggle"><i class="fas fa-eye-slash m-lg-2"></i></span>
             </div>
 
-            <input class="btn mb-3 w-25 text-white" type="submit" value="Masuk" />
-            <p class="mb-3">Belum punya akun? <a href="../templates/daftar.html" class="m-lg-1 text-info">Daftar</a></p>
+            <input class="btn btn-warning mb-3 w-25 text-white" type="submit" value="Masuk" />
+            <p class="mb-3">Belum punya akun? <a href="../templates/daftar.html" class="m-lg-1 text-warning">Daftar</a></p>
           </form>
         </div>
-
-        <div class="logo-img align-items-center justify-content-center d-flex flex-column">
-          <img src="../img-stocks/anterinaja.png" alt="" class="logo align-self-center mt-3 mb-3" />
-          <img src="../img-stocks/maskot.png" class="maskot" alt="" />
+        <div class="logo-img align-items-center justify-content-center p-4">
+          <img src="../img-stocks/maskot.png" alt="" />
         </div>
       </div>
     </section>
@@ -60,22 +59,6 @@
       sr.reveal(".form-login", { delay: 2, origin: "left" });
       sr.reveal(".logo-img img", { delay: 100, origin: "right" });
       sr.reveal(".logo", { delay: 300, origin: "top" });
-
-      const passwordInput = document.getElementById("floatingPassword");
-      const passwordToggle = document.querySelector(".password-toggle");
-      const eyeIcon = passwordToggle.querySelector("i");
-
-      passwordToggle.addEventListener("click", function () {
-        if (passwordInput.type === "password") {
-          passwordInput.type = "text";
-          eyeIcon.classList.remove("fa-eye-slash");
-          eyeIcon.classList.add("fa-eye");
-        } else {
-          passwordInput.type = "password";
-          eyeIcon.classList.add("fa-eye-slash");
-          eyeIcon.classList.remove("fa-eye");
-        }
-      });
     </script>
   </body>
 </html>
