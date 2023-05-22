@@ -4,6 +4,7 @@
 
 body {
   background: url(../img-stocks/wepik3.png) center center/cover;
+  height: 100vh;
 }
 
 .background::after {

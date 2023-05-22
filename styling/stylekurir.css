@@ -4,12 +4,11 @@
 
 body {
   background: url(../img-stocks/wepik3.png) center center/cover;
-  z-index: -999;
+  height: 100vh;
+}
+body #background {
 }
 
-.background::after {
-  background-color: rgba(0, 0, 0, 0.4);
-}
 ::-webkit-scrollbar {
   width: 0.5em;
 }
