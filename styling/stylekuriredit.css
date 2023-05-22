@@ -201,12 +201,12 @@ ul.container-fluid {
 ul.container-fluid .head-tabel {
   margin: auto;
   margin-bottom: 10px;
-  width: 100%;
+  width: 75vw;
   border-radius: 15px;
   display: flex;
   text-align: center;
-  justify-content: center;
-  padding: 10px;
+  justify-content: space-between;
+  /* padding: 10px; */
 }
 
 .tentang-barang {
@@ -224,31 +224,36 @@ ul.container-fluid .head-tabel {
 }
 .tentang-barang .tentang-barang-isi {
   display: flex;
+  width: 75vw;
+  justify-content: space-between;
 }
 
 .id_barang {
   width: 15%;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 .tanggal_kirim {
-  margin-right: 10px;
+  /* margin-right: 10px; */
 
   width: 15%;
 }
 .tanggal_sampai {
   width: 15%;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
+.nama {
+  width: 20%;
+}
 .alamat {
   width: 35%;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 .status_barang {
   width: 21%;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 .modal-dialog.my-custom-dialog {
