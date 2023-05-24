@@ -23,10 +23,12 @@
 
                 print_r($row);
                 if ($row['email'] === $email && $row['password'] === $password && $row['status'] === 'customer'){
-                    header("Location: ../templates/paketcust.html");
+                    header("Location: ../templates/paketcust.php");
+                    session_start();
+                    $_SESSION['email'] = $email;
                     exit();
                 } else if ($row['email'] === $email && $row['password'] === $password && $row['status'] === 'admin'){
-                    header("Location: ../templates/user.html");
+                    header("Location: ../templates/user.php");
                     exit();
                 } else if ($row['email'] === $email && $row['password'] === $password && $row['status'] === 'kurir'){
                     header("Location: ../templates/kuriredit.html");

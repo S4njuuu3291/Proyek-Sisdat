@@ -27,18 +27,19 @@
     } */
   </style>
   <body>
+  <?php include '../connector/con_user.php'; ?>
     <div class="background"></div>
     <nav>
       <a href="" class="logoS">
         <img src="../img-stocks/anterinaja.png" class="logo" />
       </a>
       <ul>
-        <li><a href="./user.html">Login User</a></li>
-        <li><a href="./customer.html">Customer</a></li>
-        <li><a href="./kurir.html">Kurir</a></li>
-        <li><a href="./admin.html">Admin</a></li>
-        <li><a href="./barang.html">Barang</a></li>
-        <li><a href="./gudang.html">Gudang</a></li>
+        <li><a href="./user.php">Login User</a></li>
+        <li><a href="./customer.php">Customer</a></li>
+        <li><a href="./kurir.php">Kurir</a></li>
+        <li><a href="./admin.php">Admin</a></li>
+        <li><a href="./barang.php">Barang</a></li>
+        <li><a href="./gudang.php">Gudang</a></li>
       </ul>
     </nav>
 
@@ -72,16 +73,23 @@
             </tr>
         </thead>
         <tbody>
-          <!-- Tes -->
-            <tr data-id="1">
-              <td>pahri123@gmail.com</td>
-              <td>pahri123</td>
-                <td>Customer</td>
-              <td>
-                <button class="btn btn-primary btn-sm btn-edit">Edit</button>
-                <button class="btn btn-danger btn-sm btn-delete">Delete</button>
-              </td>
-            </tr>
+          <?php 
+            if ($result->num_rows > 0){
+              while ($row = $result->fetch_assoc()){
+                echo "<tr>";
+                echo "<td>".$row["email"]."</td>";
+                echo "<td>".$row["password"]."</td>";
+                echo "<td>".$row["status"]."</td>";
+                echo "<td>
+                        <button class='btn btn-primary btn-sm btn-edit'>Edit</button>
+                        <button class='btn btn-danger btn-sm btn-delete'>Delete</button>
+                      </td>";
+                echo "</tr>";
+              }
+            } else {
+              echo "<tr><td colspan='7'>Tidak ada data dalam tabel.</td></tr>";
+            }
+          ?>
             
         </tbody>
     </table>

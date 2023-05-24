@@ -27,18 +27,19 @@
     } */
   </style>
   <body>
+    <?php include '../connector/con_customer.php'; ?>
     <div class="background"></div>
     <nav>
       <a href="" class="logoS">
         <img src="../img-stocks/anterinaja.png" class="logo" />
       </a>
       <ul>
-        <li><a href="./user.html">Login User</a></li>
-        <li><a href="./customer.html">Customer</a></li>
-        <li><a href="./kurir.html">Kurir</a></li>
-        <li><a href="./admin.html">Admin</a></li>
-        <li><a href="./barang.html">Barang</a></li>
-        <li><a href="./gudang.html">Gudang</a></li>
+        <li><a href="./user.php">Login User</a></li>
+        <li><a href="./customer.php">Customer</a></li>
+        <li><a href="./kurir.php">Kurir</a></li>
+        <li><a href="./admin.php">Admin</a></li>
+        <li><a href="./barang.php">Barang</a></li>
+        <li><a href="./gudang.php">Gudang</a></li>
       </ul>
     </nav>
 
@@ -54,7 +55,7 @@
           <li><img src="../img-stocks/user.png" alt=""></img><a href="">Profil</a></li>
           <li><img src="../img-stocks/edit.png" alt=""></img><a href="">Edit Profil</a></li>
           <li><img src="../img-stocks/settings.png" alt=""></img><a href="">Pengaturan</a></li>
-          <li><img src="../img-stocks/log-out.png" alt=""></img><a href="../templates/login.html">Keluar</a></li>
+          <li><img src="../img-stocks/log-out.png" alt=""></img><a href="../templates/login.php">Keluar</a></li>
         </ul>
       </div>
     </div>
@@ -76,31 +77,27 @@
           </tr>
       </thead>
       <tbody>
-          <tr data-id="1">
-            <td>12389025784234</td>
-            <td>Santo</td>
-            <td>34</td>
-            <td>Laki-laki</td>
-            <td>08234343833</td>
-            <td>Jln. Simpang 4</td>
-            <td>santo32323@gmail.com</td>
-            <td>
-              <button class="btn btn-primary btn-sm btn-edit">Edit</button>
-              <button class="btn btn-danger btn-sm btn-delete">Delete</button>
-            </td>
-          </tr>
-          <tr data-id="2">
-            <td>1238234568</td>
-            <td>Jamal</td>
-            <td>21</td>
-            <td>Laki-laki</td>
-            <td>081345632342</td>
-            <td>Jln. Simpang 77</td>
-            <td>jamal12@gmail.com</td>
-            <td><button class="btn btn-primary btn-sm btn-edit">Edit</button>
-              <button class="btn btn-danger btn-sm btn-delete">Delete</button>
-              </td>
-          </tr>
+        <?php 
+          if ($result->num_rows > 0){
+              while ($row = $result->fetch_assoc()){
+                echo "<tr>";
+                echo "<td>".$row["id_customer"]."</td>";
+                echo "<td>".$row["nama"]."</td>";
+                echo "<td>".$row["usia"]."</td>";
+                echo "<td>".$row["gender"]."</td>";
+                echo "<td>".$row["no_Hp"]."</td>";
+                echo "<td>".$row["alamat"]."</td>";
+                echo "<td>".$row["email"]."</td>";
+                echo "<td>
+                        <button class='btn btn-primary btn-sm btn-edit'>Edit</button>
+                        <button class='btn btn-danger btn-sm btn-delete'>Delete</button>
+                      </td>";
+                echo "</tr>";
+              }
+          } else {
+              echo "<tr><td colspan='7'>Tidak ada data dalam tabel.</td></tr>";
+          }
+        ?>
         </tbody>
       </table>
   </div>
