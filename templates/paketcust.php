@@ -31,7 +31,7 @@
         <img src="../img-stocks/anterinaja.png" class="logo" />
       </a>
       <ul>
-        <li><a href="../templates/paketcust.html">Paket Saya</a></li>
+        <li><a href="../templates/paketcust.php">Paket Saya</a></li>
         <li><a href="../templates/riwayat.html">Riwayat</a></li>
         <li><a href="#">Hubungi</a></li>
         <li><a href="#">FAQ</a></li>
@@ -44,7 +44,10 @@
       </div>
       <div class="menu " >
         <h3>
-          Sanjuuuu
+          <?php
+          $nama = $namaD->fetch_assoc();
+          echo $nama["nama"];
+          ?>
         </h3>
         <ul class="">
           <li><img src="../img-stocks/user.png" alt=""></img><a href="">Profil</a></li>
@@ -98,60 +101,38 @@
       
                   <ul class='list-group list-group-horizontal'>
                     <li class='list-group w-50 mt-3'>ID Barang :</li>
-                    <li class='list-group w-75 mt-3'>134789238888A78</li>
+                    <li class='list-group w-75 mt-3'>".$row["id_barang"]."</li>
                   </ul>
                   <ul class='list-group list-group-horizontal-sm'>
                     <li class='list-group w-50 mt-3'>Nama Penerima :</li>
-                    <li class='list-group w-75 mt-3'>Nita</li>
+                    <li class='list-group w-75 mt-3'>".$row["nama_penerima"]."</li>
                   </ul>
                   <ul class='list-group list-group-horizontal-sm'>
                     <li class='list-group w-50 mt-3'>Alamat Penerima :</li>
-                    <li class='list-group w-75 mt-3'>Jln. Sentosa Raya</li>
+                    <li class='list-group w-75 mt-3'>".$row["alamat_penerima"]."</li>
                   </ul>
                   <ul class='list-group list-group-horizontal-sm'>
                     <li class='list-group w-50 mt-3'>No. HP Penerima :</li>
-                    <li class='list-group w-75 mt-3'>08133366789</li>
+                    <li class='list-group w-75 mt-3'>".$row["no_Hp_penerima"]."</li>
                   </ul>
                   <ul class='list-group list-group-horizontal-sm'>
                     <li class='list-group w-50 mt-3'>Status Barang :</li>
-                    <li class='list-group w-75 mt-3'>Sudah keluar dari gudang 12A42</li>
+                    <li class='list-group w-75 mt-3'>".$row["status_barang"]." ".$row["alamat"]."</li>
                   </ul>
                   <ul class='list-group list-group-horizontal-sm'>
                     <li class='list-group w-50 mt-3'>Tanggal Kirim :</li>
-                    <li class='list-group w-75 mt-3'>23-05-2023 09.78 WIB</li>
+                    <li class='list-group w-75 mt-3'>".$row["tanggal_kirim"]."</li>
                   </ul>
                   <ul class='list-group list-group-horizontal-sm'>
-                    <li class='list-group w-50 mt-3'>Tanggal Sampai :</li>
-                    <li class='list-group w-75 mt-3'>Belum</li>
-                  </ul>
-                </div>
-                  <ul class='list-group list-group-horizontal'>
-                    <li class='list-group w-50 mt-3'>ID Barang :</li>
-                    <li class='list-group w-75 mt-3'>134789238888A78</li>
-                  </ul>
-                  <ul class='list-group list-group-horizontal-sm'>
-                    <li class='list-group w-50 mt-3'>Nama Penerima :</li>
-                    <li class='list-group w-75 mt-3'>Nita</li>
-                  </ul>
-                  <ul class='list-group list-group-horizontal-sm'>
-                    <li class='list-group w-50 mt-3'>Alamat Penerima :</li>
-                    <li class='list-group w-75 mt-3'>Jln. Sentosa Raya</li>
-                  </ul>
-                  <ul class='list-group list-group-horizontal-sm'>
-                    <li class='list-group w-50 mt-3'>No. HP Penerima :</li>
-                    <li class='list-group w-75 mt-3'>08133366789</li>
-                  </ul>
-                  <ul class='list-group list-group-horizontal-sm'>
-                    <li class='list-group w-50 mt-3'>Status Barang :</li>
-                    <li class='list-group w-75 mt-3'>Sudah keluar dari gudang 12A42</li>
-                  </ul>
-                  <ul class='list-group list-group-horizontal-sm'>
-                    <li class='list-group w-50 mt-3'>Tanggal Kirim :</li>
-                    <li class='list-group w-75 mt-3'>23-05-2023 09.78 WIB</li>
-                  </ul>
-                  <ul class='list-group list-group-horizontal-sm'>
-                    <li class='list-group w-50 mt-3'>Tanggal Sampai :</li>
-                    <li class='list-group w-75 mt-3'>Belum</li>
+                    <li class='list-group w-50 mt-3'>Tanggal Sampai :</li>"
+                    ;
+                    if ($row["tanggal_sampai"] === null){
+                      echo "<li class='list-group w-75 mt-3'>Belum sampai</li>";
+                    } else {
+                      echo "<li class='list-group w-75 mt-3'>".$row["tanggal_sampai"]."</li>";
+                    };
+                    
+                    echo "
                   </ul>
                 </div>
                 <div class='modal-footer'>
