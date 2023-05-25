@@ -24,13 +24,14 @@
     }
   </style>
   <body>
+  <?php include '../connector/con_myjob.php'; ?>
     <div class="background"></div>
     <nav>
       <a href="" class="logoS">
         <img src="../img-stocks/anterinaja.png" class="logo" />
       </a>
       <ul>
-        <li><a href="../templates/kuriredit.html">Paket Antar</a></li>
+        <li><a href="../templates/kuriredit.php">Paket Antar</a></li>
         <li><a href="#">Hubungi</a></li>
         <li><a href="#">FAQ</a></li>
       </ul>
@@ -42,14 +43,17 @@
       </div>
       <div class="menu " >
         <h3>
-          Sanjuuuu
+        <?php
+          $nama = $namaD->fetch_assoc();
+          echo $nama["nama"];
+          ?>
         </h3>
         <ul class="">
           <li><img src="../img-stocks/user.png" alt=""></img><a href="">Profil</a></li>
           <li><img src="../img-stocks/edit.png" alt=""></img><a href="">Edit Profil</a></li>
           
           <li><img src="../img-stocks/settings.png" alt=""></img><a href="">Pengaturan</a></li>
-          <li><img src="../img-stocks/log-out.png" alt=""></img><a href="../templates/login.html">Keluar</a></li>
+          <li><img src="../img-stocks/log-out.png" alt=""></img><a href="../templates/login.php">Keluar</a></li>
         </ul>
       </div>
     </div>
@@ -57,6 +61,7 @@
     <!-- Barangan -->
     <div class="title-barangan mt-4 text-center">
       <h3 class="">Paket :D </h3>
+      
     </div>
     <ul class="list-group container-fluid mt-4">
       <li class="head-tabel m-4">
@@ -65,25 +70,34 @@
           <span  class="alamat">Alamat Penerima</span>
           <span class="status_barang">Status Barang</span>
       </li>
-        
+      <?php
+      if ($result->num_rows > 0){
+        while ($row = $result->fetch_assoc()){
+      echo '
       <li class="">
         <div class="tentang-barang">
             <div class="tentang-barang-isi">
 
-              <span class="id_barang">13478923888A78</span>
-              <span class="nama">Nino</span>
+              <span class="id_barang">'.$row["id_barang"].'</span>
+              <span class="nama">'.$row["nama_penerima"].'</span>
               <span class="alamat">
-                Jln. Jalan di jalanan
+              '.$row["alamat_penerima"].'
               </span>
-              <span class="status_barang status_barang_isi">Sudah keluar dari gudang 12A42</span>
+              <span class="status_barang status_barang_isi">'.$row["status_barang"].' '.$row["alamat"].'</span>
             </div>
 
           <button type="button" class="btn text-white util-blue mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Detail Lengkap >
           </button>
+          
+          <form action="../connector/ubah.php" method="post">
+            <input type="hidden" name="id_barang" value="'; echo $row["id_barang"]; echo '">
+            
+            <button type="submit" class="btn btn-ceklis mt-2">Tandai Selesai
+              <i class="fa fa-check-circle"></i>
+            </button>
+          </form>
 
-          <button type="button" class="btn btn-ceklis  mt-2 " onclick="tandaiSelesai()">Tandai Selesai
-          <i class="fa fa-check-circle"></i></button>
       
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered  my-custom-dialog">
@@ -97,32 +111,32 @@
       
                   <ul class="list-group list-group-horizontal">
                     <li class="list-group w-50 mt-3">ID Barang :</li>
-                    <li class="list-group w-75 mt-3">134789238888A78</li>
+                    <li class="list-group w-75 mt-3">'.$row["id_barang"].'</li>
                   </ul>
                   <ul class="list-group list-group-horizontal-sm">
                     <li class="list-group w-50 mt-3">Nama Penerima :</li>
-                    <li class="list-group w-75 mt-3">Nino</li>
+                    <li class="list-group w-75 mt-3">'.$row["nama_penerima"].'</li>
                   </ul>
                   <ul class="list-group list-group-horizontal-sm">
                     <li class="list-group w-50 mt-3">Alamat Penerima :</li>
-                    <li class="list-group w-75 mt-3">Jln. jalan di jalanan</li>
+                    <li class="list-group w-75 mt-3">'.$row["alamat_penerima"].'</li>
                   </ul>
                   <ul class="list-group list-group-horizontal-sm">
                     <li class="list-group w-50 mt-3">No. HP Penerima :</li>
-                    <li class="list-group w-75 mt-3">08133366789</li>
+                    <li class="list-group w-75 mt-3">'.$row["no_Hp_penerima"].'</li>
                   </ul>
                   <ul class="list-group list-group-horizontal-sm">
                     <li class="list-group w-50 mt-3">Status Barang :</li>
-                    <li class="list-group w-75 mt-3">Sudah keluar dari gudang 12A42</li>
+                    <li class="list-group w-75 mt-3">'.$row["status_barang"].' '.$row["alamat"].'</li>
                   </ul>
                   <ul class="list-group list-group-horizontal-sm">
                     <li class="list-group w-50 mt-3">Tanggal Kirim :</li>
                     <li class="list-group w-75 mt-3">
-                      24/05/23 09.35 WIB</li>
+                    '.$row["tanggal_kirim"].'</li>
                   </ul>
                   <ul class="list-group list-group-horizontal-sm">
                     <li class="list-group w-50 mt-3">Tanggal Sampai :</li>
-                    <li class="list-group w-75 mt-3">Belum</li>
+                    <li class="list-group w-75 mt-3">Belum sampai</li>
                   </ul>
                 </div>
                 <div class="modal-footer">
@@ -134,8 +148,11 @@
           </div>
           
       </div>
-      </li>
-
+      </li>';}}
+      else {
+        echo "<tr><td colspan='7'>Tidak ada data dalam tabel.</td></tr>";
+    };
+      ?>
     </ul>
 
     

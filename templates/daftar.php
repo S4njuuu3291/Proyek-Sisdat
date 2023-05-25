@@ -29,6 +29,9 @@
             <div class="bungkus h-25 w-50 tingginya">Daftar dulu yaa..</div>
             <img src="../img-stocks/maskot.png" alt="" class="maskot w-25" />
           </div>
+          <?php if (isset($_GET['error'])){ ?>
+              <p class="error"><?php echo $_GET['error']; ?></p> 
+          <?php } ?>
           <div class="align-items-center w-100">
             <div class="col-auto">
               <label for="inputEmail" class="col-form-label">Email : </label>
@@ -37,7 +40,7 @@
               <input type="email" id="inputEmail" class="form-control" name="email"/>
             </div>
           </div>
-
+          
           <div class="align-items-center w-100 mt-2">
             <div class="col-auto">
               <label for="inputPassword" class="col-form-label">Password : </label>
@@ -52,7 +55,7 @@
               <label for="ulangiPassword" class="col-form-label">Ulangi Password : </label>
             </div>
             <div class="col-auto">
-              <input type="text" id="ulangiPassword" class="form-control" />
+              <input type="text" id="ulangiPassword" class="form-control" name="ulang"/>
             </div>
           </div>
           <a href="#section-id" class="scroll-down text-primary mt-3"><i class="fas fa-arrow-down"></i></a>

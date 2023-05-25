@@ -29,9 +29,13 @@
                     exit();
                 } else if ($row['email'] === $email && $row['password'] === $password && $row['status'] === 'admin'){
                     header("Location: ../templates/user.php");
+                    session_start();
+                    $_SESSION['email'] = $email;
                     exit();
                 } else if ($row['email'] === $email && $row['password'] === $password && $row['status'] === 'kurir'){
-                    header("Location: ../templates/kuriredit.html");
+                    header("Location: ../templates/kuriredit.php");
+                    session_start();
+                    $_SESSION['email'] = $email;
                     exit();
                 } else {
                     header("Location: ../templates/login.php?error=Incorrect Email or Password");

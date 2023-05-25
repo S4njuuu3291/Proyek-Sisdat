@@ -38,7 +38,7 @@
             </div>
 
             <input class="btn btn-warning mb-3 w-25 text-white" type="submit" value="Masuk" />
-            <p class="mb-3">Belum punya akun? <a href="../templates/daftar.html" class="m-lg-1 text-warning">Daftar</a></p>
+            <p class="mb-3">Belum punya akun? <a href="../templates/daftar.php" class="m-lg-1 text-warning">Daftar</a></p>
           </form>
         </div>
         <div class="logo-img align-items-center justify-content-center p-4">

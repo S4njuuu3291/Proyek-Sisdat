@@ -32,7 +32,7 @@
       </a>
       <ul>
         <li><a href="../templates/paketcust.php">Paket Saya</a></li>
-        <li><a href="../templates/riwayat.html">Riwayat</a></li>
+        <li><a href="../templates/riwayat.php">Riwayat</a></li>
         <li><a href="#">Hubungi</a></li>
         <li><a href="#">FAQ</a></li>
       </ul>

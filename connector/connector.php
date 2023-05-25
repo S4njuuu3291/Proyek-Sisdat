@@ -17,7 +17,11 @@
     $koneksi = new mysqli($host, $username, $passwordsql, $database);
     if ($koneksi->connect_error){
         die('Koneksi gagal'.$koneksi->connect_error);
-    } else {
+    } else if(!($_POST['password'] === $_POST['ulang'])){
+        header("Location: ../templates/daftar.php?error=Password Do Not Match");
+        exit();
+    } else
+    {
         $stmt = $koneksi->prepare("INSERT INTO user (email, password) VALUES (?,?);");
         $stmt->bind_param("ss", $email, $password);
         $stmt->execute();
