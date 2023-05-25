@@ -49,7 +49,10 @@
       </div>
       <div class="menu " >
         <h3>
-          Sanjuuuu
+        <?php
+          $nama = $namaD->fetch_assoc();
+          echo $nama["nama"];
+          ?>
         </h3>
         <ul class="">
           <li><img src="../img-stocks/user.png" alt=""></img><a href="">Profil</a></li>
@@ -88,13 +91,10 @@
                 echo "<td>".$row["no_Hp"]."</td>";
                 echo "<td>".$row["email"]."</td>";
                 echo '<td>
-                <form action="../connector/edit.php" method="post">
-                  <input type="hidden" name="email" value="'; echo $row["email"]; echo '">
                   <button class="btn btn-primary btn-sm btn-edit" type="submit">Edit</button>
-                </form>
                 <form action="../connector/hapus.php" method="post">
                   <input type="hidden" name="email" value="'; echo $row["email"]; echo '">
-                  <button class="btn btn-danger btn-sm btn-delete" type="Delete">Delete</button>
+                  <button class="btn btn-danger btn-sm btn-hapus" type="Delete">Delete</button>
                 </form>
                         
                       </td>';
@@ -111,59 +111,59 @@
 
 <!-- Modal Edit -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    
+    <form id="editAIDI" class="modal-dialog" action="../connector/edit.php" method="post">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="editModalLabel">Edit Data</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="editAIDI" class="modal-split">
+                
+                <div class="modal-split">
                   <div class="left-column">
                     <div class="mb-3">
                       <label for="editID" class="form-label">ID Admin:</label>
-                      <input type="text" class="form-control" id="editID" readonly>
+                      <input type="text" class="form-control" id="editID" readonly name="id">
                     </div>
                     <div class="mb-3">
                       <label for="editNama" class="form-label">Nama:</label>
-                        <input type="text" class="form-control" id="editNama">
+                        <input type="text" class="form-control" id="editNama" name="nama">
                       </div>
                     <div class="mb-3">
                       <label for="editUsia" class="form-label">Usia:</label>
-                      <input type="text" class="form-control" id="editUsia">
+                      <input type="number" class="form-control" id="editUsia" name="usia">
                     </div>
-                    <div class="mb-3">
-                      <label for="editGender" class="form-label">Gender:</label>
-                      <select class="form-select" id="editGender">
-                        <option value="Laki-laki">Laki-laki</option>
-                        <option value="Perempuan">Perempuan</option>
-                        <option value="Siluman">Siluman</option>
-                      </select>
-                  </div>
+                    
                 </div>
                 <div class="right-column">
                     <div class="mb-3">
                       <label for="editNoHp" class="form-label">No Hp:</label>
-                      <input type="text" class="form-control" id="editNoHp">
-                    </div>
-                    <div class="mb-3">
-                      <label for="editAlamat" class="form-label">Alamat:</label>
-                      <input type="text" class="form-control" id="editAlamat">
-                    </div>
-                    <div class="mb-3">
-                      <label for="editEmail" class="form-label">Email:</label>
-                      <input type="email" class="form-control" id="editEmail">
+                      <input type="text" class="form-control" id="editNoHp" name="no_Hp">
                     </div>
                     
+                    <div class="mb-3">
+                      <label for="editEmail" class="form-label">Email:</label>
+                      <input type="email" class="form-control" id="editEmail" name="email">
+                    </div>
+                    <div class="mb-3">
+                      <label for="editGender" class="form-label">Gender:</label>
+                      <select class="form-select" id="editGender" name="gender">
+                        <option value="L">Laki-laki</option>
+                        <option value="P">Perempuan</option>
+                      </select>
                   </div>
-                </form>
+                  </div>
+                </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                <button type="button" class="btn btn-primary" id="saveChanges">Simpan Perubahan</button>
+                <button type="button" class="btn btn-secondary mt-3" data-bs-dismiss="modal">Tutup</button>
+                <input class="btn btn-primary mt-3 text-white text-center" type="submit" value="Simpan Perubahan" />
+                
               </div>
             </div>
-    </div>
+        </div>
+      </form>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -188,8 +188,7 @@
         $('#editUsia').val(data[2]);
         $('#editGender').val(data[3]);
         $('#editNoHp').val(data[4]);
-        $('#editAlamat').val(data[5]);
-        $('#editEmail').val(data[6]);
+        $('#editEmail').val(data[5]);
         $('#editModal').modal('show');
     });
 
@@ -200,7 +199,6 @@
         var nama = $('#editNama').val();
         var usia = $('#editUsia').val();
         var noHp = $('#editNoHp').val();
-        var alamat = $('#editAlamat').val();
         var email = $('#editEmail').val();
         var gender = $('#editGender').val();
 
@@ -211,8 +209,7 @@
         rowData[2] = usia;
         rowData[3] = gender;
         rowData[4] = noHp;
-        rowData[5] = alamat;
-        rowData[6] = email;
+        rowData[5] = email;
 
         row.data(rowData).draw();
 

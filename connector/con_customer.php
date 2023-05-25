@@ -12,9 +12,16 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
-
+$sqlnama = "SELECT email FROM admin";
+$hasil = $conn->query($sqlnama);
+$baris = $hasil->fetch_assoc();
+$email = $baris['email'];
+$nama = "SELECT nama FROM admin WHERE email = '$email'";
+$namaD = $conn->query($nama);
 // Mengambil data dari tabel MySQL
-$sql = "SELECT * FROM customer";
+$sql = "SELECT customer.*, user.email FROM customer 
+RIGHT JOIN user ON user.email = customer.email
+WHERE user.status = 'customer';";
 $result = $conn->query($sql);
 
 // Menutup koneksi
