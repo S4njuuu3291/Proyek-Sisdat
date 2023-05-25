@@ -87,10 +87,17 @@
                 echo "<td>".$row["gender"]."</td>";
                 echo "<td>".$row["no_Hp"]."</td>";
                 echo "<td>".$row["email"]."</td>";
-                echo "<td>
-                        <button class='btn btn-primary btn-sm btn-edit'>Edit</button>
-                        <button class='btn btn-danger btn-sm btn-delete'>Delete</button>
-                      </td>";
+                echo '<td>
+                <form action="../connector/edit.php" method="post">
+                  <input type="hidden" name="email" value="'; echo $row["email"]; echo '">
+                  <button class="btn btn-primary btn-sm btn-edit" type="submit">Edit</button>
+                </form>
+                <form action="../connector/hapus.php" method="post">
+                  <input type="hidden" name="email" value="'; echo $row["email"]; echo '">
+                  <button class="btn btn-danger btn-sm btn-delete" type="Delete">Delete</button>
+                </form>
+                        
+                      </td>';
                 echo "</tr>";
               }
           } else {

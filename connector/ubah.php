@@ -12,7 +12,8 @@
     {
         $sql = "SELECT status_barang FROM barang WHERE id_barang = '$id_barang'";
         $hasil = $koneksi->query($sql);
-        if ($hasil === 'Dikirim ke penerima '){
+        $baris = $hasil->fetch_assoc();
+        if ($baris['status_barang'] === 'Dikirim ke penerima'){
             $stmt = $koneksi->prepare("UPDATE barang SET status_barang = 'Sampai di penerima', tanggal_sampai = CURRENT_TIMESTAMP(), id_kurir = null WHERE id_barang = ?;");
             $stmt->bind_param("i", $id_barang);
             $stmt->execute();
