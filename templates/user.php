@@ -49,13 +49,16 @@
       </div>
       <div class="menu " >
         <h3>
-          Sanjuuuu
+        <?php
+          $nama = $namaD->fetch_assoc();
+          echo $nama["nama"];
+          ?>
         </h3>
         <ul class="">
           <li><img src="../img-stocks/user.png" alt=""></img><a href="">Profil</a></li>
           <li><img src="../img-stocks/edit.png" alt=""></img><a href="">Edit Profil</a></li>
           <li><img src="../img-stocks/settings.png" alt=""></img><a href="">Pengaturan</a></li>
-          <li><img src="../img-stocks/log-out.png" alt=""></img><a href="../templates/login.html">Keluar</a></li>
+          <li><img src="../img-stocks/log-out.png" alt=""></img><a href="../templates/login.php">Keluar</a></li>
         </ul>
       </div>
     </div>
@@ -80,10 +83,13 @@
                 echo "<td>".$row["email"]."</td>";
                 echo "<td>".$row["password"]."</td>";
                 echo "<td>".$row["status"]."</td>";
-                echo "<td>
-                        <button class='btn btn-primary btn-sm btn-edit'>Edit</button>
-                        <button class='btn btn-danger btn-sm btn-delete'>Delete</button>
-                      </td>";
+                echo '<td>
+                        <button class="btn btn-primary btn-sm btn-edit">Edit</button>
+                        <form action="../connector/hapususer.php" method="post">
+                          <input type="hidden" name="email" value="'; echo $row["email"]; echo '">
+                          <button class="btn btn-danger btn-sm btn-hapus" type="Delete">Delete</button>
+                        </form>
+                      </td>';
                 echo "</tr>";
               }
             } else {
@@ -97,34 +103,34 @@
 
 <!-- Modal Edit -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+  <form id="editAIDI" class="modal-dialog" action="../connector/edituser.php" method="post">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="editModalLabel">Edit Data</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body ">
-                <form id="editAIDI" class="">
+                <div class="">
                     <div class="mb-3">
                       <label for="editEmail" class="form-label">Email:</label>
-                      <input type="email" class="form-control" id="editEmail">
+                      <input type="email" class="form-control" id="editEmail" name="email">
                     </div>
                     <div class="mb-3">
                         <label for="editPassword" class="form-label">Password:</label>
-                        <input type="text" class="form-control" id="editPassword">
+                        <input type="text" class="form-control" id="editPassword" name="password">
                     </div>
                     <div class="mb-3">
                         <label for="editStatus" class="form-label">Status:</label>
-                        <input type="text" class="form-control" id="editStatus">
+                        <input type="text" class="form-control" id="editStatus" name="status">
                     </div>
-                </form>
+          </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                <button type="button" class="btn btn-primary" id="saveChanges">Simpan Perubahan</button>
+                <button type="button" class="btn btn-secondary mt-3" data-bs-dismiss="modal">Tutup</button>
+                <input class="btn btn-primary mt-3 text-white text-center" type="submit" value="Simpan Perubahan" />
               </div>
             </div>
-    </div>
+          </form>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
