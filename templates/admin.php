@@ -170,40 +170,31 @@
 <!-- Modal Edit -->
 <div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
     
-    <form id="editAIDI" class="modal-dialog" action="../connector/edit.php" method="post">
+    <form id="editAIDI" class="modal-dialog" action="../connector/tambahuser.php" method="post">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="tambahModalLabel">Tambah Data</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
+          </div>
             <div class="modal-body">
-                
-                <div class="modal-split">
-                  <div class="left-column">
-                    <div class="mb-3">
-                      <label for="editID" class="form-label">ID Admin:</label>
-                      <input type="text" class="form-control" id="editID" readonly name="id">
-                    </div>
-                    <div class="mb-3">
-                      <label for="editNama" class="form-label">Nama:</label>
-                        <input type="text" class="form-control" id="editNama" name="nama">
-                      </div>
-                    <div class="mb-3">
-                      <label for="editUsia" class="form-label">Usia:</label>
-                      <input type="number" class="form-control" id="editUsia" name="usia">
-                    </div>
-                    
-                </div>
-                <div class="right-column">
-                    <div class="mb-3">
-                      <label for="editNoHp" class="form-label">No Hp:</label>
-                      <input type="text" class="form-control" id="editNoHp" name="no_Hp">
-                    </div>
-                    
-                    <div class="mb-3">
-                      <label for="editEmail" class="form-label">Email:</label>
-                      <input type="email" class="form-control" id="editEmail" name="email">
-                    </div>
+              <div class="modal-split">
+                <div class="left-column">
+                  <div class="mb-3">
+                    <label for="editEmail" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="editEmail" name="email">
+                  </div>
+                  <div class="mb-3">
+                      <label for="editEmail" class="form-label">password:</label>
+                      <input type="text" class="form-control" id="editEmail" name="password">
+                  </div>
+                  
+                  <div class="mb-3">
+                    <label for="editNama" class="form-label">Nama:</label>
+                      <input type="text" class="form-control" id="editNama" name="nama">
+                  </div>
+                  
+                  </div>
+                  <div class="right-column">
                     <div class="mb-3">
                       <label for="editGender" class="form-label">Gender:</label>
                       <select class="form-select" id="editGender" name="gender">
@@ -211,13 +202,22 @@
                         <option value="P">Perempuan</option>
                       </select>
                   </div>
+                    <div class="mb-3">
+                      <label for="editNoHp" class="form-label">No Hp:</label>
+                      <input type="text" class="form-control" id="editNoHp" name="no_Hp">
+                    </div>
+                    <div class="mb-3">
+                      <label for="editUsia" class="form-label">Usia:</label>
+                      <input type="number" class="form-control" id="editUsia" name="usia">
+                    </div>
+                    
+                    
                   </div>
-                </div>
+          </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary mt-3" data-bs-dismiss="modal">Tutup</button>
-                <input class="btn btn-primary mt-3 text-white text-center" type="submit" value="Simpan Perubahan" />
-                
+                <input class="btn btn-primary mt-3 text-white text-center" type="submit" value="admin" name="status"/>
               </div>
             </div>
         </div>
