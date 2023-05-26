@@ -87,6 +87,7 @@
                 echo "<td>".$row["tanggal_simpan"]."</td>";
                 echo '<td>
                         <button class="btn btn-primary btn-sm btn-edit">Edit</button>
+                        <button class="btn btn-sm "><i class="fa fa-plus-circle text-info btn-tambah"></i></button>
                         <form action="../connector/hapusgudang.php" method="post">
                           <input type="hidden" name="id_gudang" value="'; echo $row["id_gudang"]; echo '">
                           <button class="btn btn-danger btn-sm btn-hapus" type="Delete">Delete</button>
@@ -140,6 +141,44 @@
         </form>
 </div>
 
+<!-- Modal Tambah -->
+<div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
+  <form id="editAIDI" class="modal-dialog" action="../connector/editgudang.php" method="post">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="tambahModalLabel">Tambah Data</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-split">
+          <div c  lass="left-column">
+            <div class="mb-3">
+              <label for="editIDGudang" class="form-label">ID Gudang:</label>
+              <input type="text" class="form-control" id="editIDGudang" readonly name="id_gudang">
+            </div>
+            <div class="mb-3">
+              <label for="editAlamat" class="form-label">Alamat Gudang:</label>
+              <input type="text" class="form-control" id="editAlamat" name="alamat">
+            </div>
+            <div class="mb-3">
+              <label for="editTglKirim" class="form-label">Tanggal Kirim</label>
+              <input type="text" class="form-control" id="editTglKirim"  name="tanggal_kirim" >
+            </div>           
+            <div class="mb-3">
+              <label for="editTglSampai" class="form-label">Tanggal Sampai:</label>
+              <input type="text" class="form-control" id="editTglSampai"  name="tanggal_simpan" >
+            </div>                     
+          </div>
+        </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary mt-3" data-bs-dismiss="modal">Tutup</button>
+            <input class="btn btn-primary mt-3 text-white text-center" type="submit" value="Simpan Perubahan" />
+          </div>
+        </div>
+        </form>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
@@ -160,6 +199,14 @@ $(document).ready(function() {
         $('#editAlamat').val(data[1]);
         $('#editTglKirim').val(data[2]);
         $('#editTglSampai').val(data[3]);
+        $('#editModal').modal('show');
+    });
+
+    $('#myTable').on('click', '.btn-tambah', function() {
+        var row = $(this).closest('tr');
+        var aidi = row.data('id');
+        var data = table.row(row).data();
+
         $('#editModal').modal('show');
     });
 

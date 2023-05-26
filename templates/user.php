@@ -85,12 +85,13 @@
                 echo "<td>".$row["status"]."</td>";
                 echo '<td>
                         <button class="btn btn-primary btn-sm btn-edit">Edit</button>
+                        
                         <form action="../connector/hapususer.php" method="post">
                           <input type="hidden" name="email" value="'; echo $row["email"]; echo '">
                           <button class="btn btn-danger btn-sm btn-hapus" type="Delete">Delete</button>
-                        </form>
-                      </td>';
-                echo "</tr>";
+                          </form>
+                          </td>';
+                          echo "</tr>";
               }
             } else {
               echo "<tr><td colspan='7'>Tidak ada data dalam tabel.</td></tr>";

@@ -99,6 +99,7 @@
                 echo "<td>".$row["status_barang"]."</td>";
                 echo '<td>
                         <button class="btn btn-primary btn-sm btn-edit">Edit</button>
+                        <button class="btn btn-sm "><i class="fa fa-plus-circle text-info btn-tambah"></i></button>
                         <form action="../connector/hapusbarang.php" method="post">
                           <input type="hidden" name="id_barang" value="'; echo $row["id_barang"]; echo '">
                           <button class="btn btn-danger btn-sm btn-hapus" type="Delete">Delete</button>
@@ -121,6 +122,72 @@
     <div class="modal-content">
       <div class="modal-header">
           <h5 class="modal-title" id="editModalLabel">Edit Data</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-split">
+          <div class="left-column">
+            <div class="mb-2">
+              <label for="editidBarang" class="form-label">ID Barang:</label>
+              <input type="text" class="form-control" id="editidBarang" readonly name="id_barang">
+            </div>
+            <div class="mb-2">
+              <label for="editidCustomer" class="form-label">ID Customer:</label>
+              <input type="text" class="form-control" id="editidCustomer" name="id_customer">
+            </div>
+            <div class="mb-2">
+              <label for="editAlamat" class="form-label">Alamat Penerima:</label>
+              <input type="text" class="form-control" id="editAlamat"  name="alamat_penerima" >
+            </div>           
+            <div class="mb-2">
+              <label for="editNama" class="form-label">Nama Penerima:</label>
+              <input type="text" class="form-control" id="editNama"  name="nama_penerima" >
+            </div>           
+            <div class="mb-2">
+              <label for="editNoHp" class="form-label">No. Hp Penerima:</label>
+              <input type="text" class="form-control" id="editNoHp" name="no_Hp_penerima"  >
+            </div>           
+          </div>
+          <div class="right-column">
+            <div class="mb-2">
+              <label for="editTglKirim" class="form-label">Tanggal Kirim:</label>
+              <input type="text" class="form-control" id="editTglKirim"  name="tanggal_kirim" >
+            </div>
+            <div class="mb-2">
+              <label for="editTglSampai" class="form-label">Tanggal Sampai:</label>
+              <input type="text" class="form-control" id="editTglSampai" name="tanggal_sampai" >
+            </div>
+           
+            <div class="mb-2">
+              <label for="editIDKurir" class="form-label">ID Kurir:</label>
+              <input type="text" class="form-control" id="editIDKurir"  name="id_kurir" >
+            </div>           
+            <div class="mb-2">
+              <label for="editIDGudang" class="form-label">ID Gudang:</label>
+              <input type="text" class="form-control" id="editIDGudang"  name="id_gudang" >
+            </div>           
+                     
+            <div class="mb-2">
+              <label for="status" class="form-label">Status Barang:</label>
+              <input type="text" class="form-control" id="status" name="status_barang"  >
+            </div>           
+          </div>
+        </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary mt-3" data-bs-dismiss="modal">Tutup</button>
+            <input class="btn btn-primary mt-3 text-white text-center" type="submit" value="Simpan Perubahan" />
+          </div>
+        </div>
+        </form>
+</div>
+
+<!-- Tambah Edit -->
+<div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
+  <form id="editAIDI" class="modal-dialog" action="../connector/editbarang.php" method="post">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="tambahModalLabel">Tambah Data</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -208,6 +275,13 @@
         $('#editIDKurir').val(data[7]);
         $('#editIDGudang').val(data[8]);
         $('#status').val(data[9]);
+        $('#editModal').modal('show');
+    });
+    $('#myTable').on('click', '.btn-tambah', function() {
+        var row = $(this).closest('tr');
+        var aidi = row.data('id');
+        var data = table.row(row).data();
+
         $('#editModal').modal('show');
     });
 

@@ -210,3 +210,16 @@ nav ul li a:hover {
   height: 100%;
   box-sizing: border-box;
 }
+
+.btn-tambah {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 0;
+  font-size: 40px;
+}
+
+button .btn-tambah {
+  border-radius: 50%;
+  background-color: white;
+}
