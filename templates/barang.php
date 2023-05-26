@@ -49,7 +49,10 @@
       </div>
       <div class="menu " >
         <h3>
-          Sanjuuuu
+        <?php
+          $nama = $namaD->fetch_assoc();
+          echo $nama["nama"];
+          ?>
         </h3>
         <ul class="">
           <li><img src="../img-stocks/user.png" alt=""></img><a href="">Profil</a></li>
@@ -94,10 +97,13 @@
                 echo "<td>".$row["id_kurir"]."</td>";
                 echo "<td>".$row["id_gudang"]."</td>";
                 echo "<td>".$row["status_barang"]."</td>";
-                echo "<td>
-                        <button class='btn btn-primary btn-sm btn-edit'>Edit</button>
-                        <button class='btn btn-danger btn-sm btn-delete'>Delete</button>
-                      </td>";
+                echo '<td>
+                        <button class="btn btn-primary btn-sm btn-edit">Edit</button>
+                        <form action="../connector/hapusbarang.php" method="post">
+                          <input type="hidden" name="id_barang" value="'; echo $row["id_barang"]; echo '">
+                          <button class="btn btn-danger btn-sm btn-hapus" type="Delete">Delete</button>
+                        </form>
+                      </td>';
                 echo "</tr>";
               }
           } else {
@@ -111,68 +117,68 @@
 
 <!-- Modal Edit -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <form id="editAIDI" class="modal-dialog" action="../connector/editbarang.php" method="post">
     <div class="modal-content">
       <div class="modal-header">
           <h5 class="modal-title" id="editModalLabel">Edit Data</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form id="editAIDI" class="modal-split">
+        <div class="modal-split">
           <div class="left-column">
             <div class="mb-2">
               <label for="editidBarang" class="form-label">ID Barang:</label>
-              <input type="text" class="form-control" id="editidBarang" readonly>
+              <input type="text" class="form-control" id="editidBarang" readonly name="id_barang">
             </div>
             <div class="mb-2">
               <label for="editidCustomer" class="form-label">ID Customer:</label>
-              <input type="text" class="form-control" id="editidCustomer" readonly>
+              <input type="text" class="form-control" id="editidCustomer" name="id_customer">
             </div>
             <div class="mb-2">
               <label for="editAlamat" class="form-label">Alamat Penerima:</label>
-              <input type="text" class="form-control" id="editAlamat"   >
+              <input type="text" class="form-control" id="editAlamat"  name="alamat_penerima" >
             </div>           
             <div class="mb-2">
               <label for="editNama" class="form-label">Nama Penerima:</label>
-              <input type="text" class="form-control" id="editNama"   >
+              <input type="text" class="form-control" id="editNama"  name="nama_penerima" >
             </div>           
             <div class="mb-2">
               <label for="editNoHp" class="form-label">No. Hp Penerima:</label>
-              <input type="text" class="form-control" id="editNoHp"   >
+              <input type="text" class="form-control" id="editNoHp" name="no_Hp_penerima"  >
             </div>           
           </div>
           <div class="right-column">
             <div class="mb-2">
               <label for="editTglKirim" class="form-label">Tanggal Kirim:</label>
-              <input type="text" class="form-control" id="editTglKirim"   >
+              <input type="text" class="form-control" id="editTglKirim"  name="tanggal_kirim" >
             </div>
             <div class="mb-2">
               <label for="editTglSampai" class="form-label">Tanggal Sampai:</label>
-              <input type="text" class="form-control" id="editTglSampai"  >
+              <input type="text" class="form-control" id="editTglSampai" name="tanggal_sampai" >
             </div>
            
             <div class="mb-2">
               <label for="editIDKurir" class="form-label">ID Kurir:</label>
-              <input type="text" class="form-control" id="editIDKurir"   >
+              <input type="text" class="form-control" id="editIDKurir"  name="id_kurir" >
             </div>           
             <div class="mb-2">
               <label for="editIDGudang" class="form-label">ID Gudang:</label>
-              <input type="text" class="form-control" id="editIDGudang"   >
+              <input type="text" class="form-control" id="editIDGudang"  name="id_gudang" >
             </div>           
                      
             <div class="mb-2">
               <label for="status" class="form-label">Status Barang:</label>
-              <input type="text" class="form-control" id="status"   >
+              <input type="text" class="form-control" id="status" name="status_barang"  >
             </div>           
           </div>
-            </form>
+        </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-            <button type="button" class="btn btn-primary" id="saveChanges">Simpan Perubahan</button>
+            <button type="button" class="btn btn-secondary mt-3" data-bs-dismiss="modal">Tutup</button>
+            <input class="btn btn-primary mt-3 text-white text-center" type="submit" value="Simpan Perubahan" />
           </div>
         </div>
-  </div>
+        </form>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
