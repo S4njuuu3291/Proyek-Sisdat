@@ -213,7 +213,8 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary mt-3" data-bs-dismiss="modal">Tutup</button>
-                <input class="btn btn-primary mt-3 text-white text-center" type="submit" value="kurir" name="status"/>
+                <input type="hidden" name="status" value="kurir">
+                <input class="btn btn-primary mt-3 text-white text-center" type="submit" value="Tambah"/>
               </div>
           </div>
           </div>

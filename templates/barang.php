@@ -184,7 +184,7 @@
 
 <!-- Tambah Edit -->
 <div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
-  <form id="editAIDI" class="modal-dialog" action="../connector/editbarang.php" method="post">
+  <form id="editAIDI" class="modal-dialog" action="../connector/tambahbarang.php" method="post">
     <div class="modal-content">
       <div class="modal-header">
           <h5 class="modal-title" id="tambahModalLabel">Tambah Data</h5>
@@ -219,11 +219,7 @@
               <label for="editTglKirim" class="form-label">Tanggal Kirim:</label>
               <input type="text" class="form-control" id="editTglKirim"  name="tanggal_kirim" >
             </div>
-            <div class="mb-2">
-              <label for="editTglSampai" class="form-label">Tanggal Sampai:</label>
-              <input type="text" class="form-control" id="editTglSampai" name="tanggal_sampai" >
-            </div>
-           
+            
             <div class="mb-2">
               <label for="editIDKurir" class="form-label">ID Kurir:</label>
               <input type="text" class="form-control" id="editIDKurir"  name="id_kurir" >
@@ -282,7 +278,7 @@
         var aidi = row.data('id');
         var data = table.row(row).data();
 
-        $('#editModal').modal('show');
+        $('#tambahModal').modal('show');
     });
 
     // Save Changes Button Click

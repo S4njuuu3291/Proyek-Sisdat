@@ -143,7 +143,7 @@
 
 <!-- Modal Tambah -->
 <div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
-  <form id="editAIDI" class="modal-dialog" action="../connector/editgudang.php" method="post">
+  <form id="editAIDI" class="modal-dialog" action="../connector/tambahgudang.php" method="post">
     <div class="modal-content">
       <div class="modal-header">
           <h5 class="modal-title" id="tambahModalLabel">Tambah Data</h5>
@@ -207,7 +207,7 @@ $(document).ready(function() {
         var aidi = row.data('id');
         var data = table.row(row).data();
 
-        $('#editModal').modal('show');
+        $('#tambahModal').modal('show');
     });
 
     // Save Changes Button Click

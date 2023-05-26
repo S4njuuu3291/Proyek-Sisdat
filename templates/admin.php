@@ -170,7 +170,7 @@
 <!-- Modal Edit -->
 <div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
     
-    <form id="editAIDI" class="modal-dialog" action="../connector/tambahuser.php" method="post">
+    <form id="tambahModal" class="modal-dialog" action="../connector/tambahuser.php" method="post">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="tambahModalLabel">Tambah Data</h5>
@@ -217,7 +217,8 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary mt-3" data-bs-dismiss="modal">Tutup</button>
-                <input class="btn btn-primary mt-3 text-white text-center" type="submit" value="admin" name="status"/>
+                <input type="hidden" name="status" value="admin">
+                <input class="btn btn-primary mt-3 text-white text-center" type="submit" value="Tambah"/>
               </div>
             </div>
         </div>
@@ -255,7 +256,7 @@
         var aidi = row.data('id');
         var data = table.row(row).data();
 
-        $('#editModal').modal('show');
+        $('#tambahModal').modal('show');
     });
 
     // Save Changes Button Click
