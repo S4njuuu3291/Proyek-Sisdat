@@ -49,7 +49,10 @@
       </div>
       <div class="menu " >
         <h3>
-          Sanjuuuu
+        <?php
+          $nama = $namaD->fetch_assoc();
+          echo $nama["nama"];
+          ?>
         </h3>
         <ul class="">
           <li><img src="../img-stocks/user.png" alt=""></img><a href="">Profil</a></li>
@@ -82,10 +85,13 @@
                 echo "<td>".$row["alamat"]."</td>";
                 echo "<td>".$row["tanggal_kirim"]."</td>";
                 echo "<td>".$row["tanggal_simpan"]."</td>";
-                echo "<td>
-                        <button class='btn btn-primary btn-sm btn-edit'>Edit</button>
-                        <button class='btn btn-danger btn-sm btn-delete'>Delete</button>
-                      </td>";
+                echo '<td>
+                        <button class="btn btn-primary btn-sm btn-edit">Edit</button>
+                        <form action="../connector/hapusgudang.php" method="post">
+                          <input type="hidden" name="id_gudang" value="'; echo $row["id_gudang"]; echo '">
+                          <button class="btn btn-danger btn-sm btn-hapus" type="Delete">Delete</button>
+                        </form>
+                      </td>';
                 echo "</tr>";
               }
           } else {
@@ -98,40 +104,40 @@
 
 <!-- Modal Edit -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <form id="editAIDI" class="modal-dialog" action="../connector/editgudang.php" method="post">
     <div class="modal-content">
       <div class="modal-header">
           <h5 class="modal-title" id="editModalLabel">Edit Data</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form id="editAIDI" class="modal-split">
+        <div class="modal-split">
           <div c  lass="left-column">
             <div class="mb-3">
               <label for="editIDGudang" class="form-label">ID Gudang:</label>
-              <input type="text" class="form-control" id="editIDGudang" readonly>
+              <input type="text" class="form-control" id="editIDGudang" readonly name="id_gudang">
             </div>
             <div class="mb-3">
               <label for="editAlamat" class="form-label">Alamat Gudang:</label>
-              <input type="text" class="form-control" id="editAlamat" readonly>
+              <input type="text" class="form-control" id="editAlamat" name="alamat">
             </div>
             <div class="mb-3">
               <label for="editTglKirim" class="form-label">Tanggal Kirim</label>
-              <input type="text" class="form-control" id="editTglKirim"   >
+              <input type="text" class="form-control" id="editTglKirim"  name="tanggal_kirim" >
             </div>           
             <div class="mb-3">
               <label for="editTglSampai" class="form-label">Tanggal Sampai:</label>
-              <input type="text" class="form-control" id="editTglSampai"   >
+              <input type="text" class="form-control" id="editTglSampai"  name="tanggal_simpan" >
             </div>                     
           </div>
-            </form>
+        </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-            <button type="button" class="btn btn-primary" id="saveChanges">Simpan Perubahan</button>
+            <button type="button" class="btn btn-secondary mt-3" data-bs-dismiss="modal">Tutup</button>
+            <input class="btn btn-primary mt-3 text-white text-center" type="submit" value="Simpan Perubahan" />
           </div>
         </div>
-  </div>
+        </form>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
