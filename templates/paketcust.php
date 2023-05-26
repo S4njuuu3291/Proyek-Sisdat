@@ -50,8 +50,8 @@
           ?>
         </h3>
         <ul class="">
-          <li><img src="../img-stocks/user.png" alt=""></img><a href="">Profil</a></li>
-          <li><img src="../img-stocks/edit.png" alt=""></img><a href="">Edit Profil</a></li>
+          <li><img src="../img-stocks/user.png" alt=""></img><a href="../templates/profilcustomer.php">Profil</a></li>
+          <li><img src="../img-stocks/edit.png" alt=""></img><a href="../templates/profileditcustomer.php">Edit Profil</a></li>
           
           <li><img src="../img-stocks/settings.png" alt=""></img><a href="">Pengaturan</a></li>
           <li><img src="../img-stocks/log-out.png" alt=""></img><a href="../templates/login.php">Keluar</a></li>
