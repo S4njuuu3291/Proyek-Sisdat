@@ -25,6 +25,7 @@
   </style>
   <body>
   <?php include '../connector/con_myjob.php'; ?>
+  <?php include '../connector/myprofile.php'; ?>
     <div class="background"></div>
     <nav>
       <a href="" class="logoS">
@@ -49,8 +50,8 @@
           ?>
         </h3>
         <ul class="">
-          <li><img src="../img-stocks/user.png" alt=""></img><a href="profilkurir.html">Profil</a></li>
-          <li><img src="../img-stocks/edit.png" alt=""></img><a href="profileditkurir.html">Edit Profil</a></li>
+          <li><img src="../img-stocks/user.png" alt=""></img><a href="profilkurir.php">Profil</a></li>
+          <li><img src="../img-stocks/edit.png" alt=""></img><a href="profileditkurir.php">Edit Profil</a></li>
           
           <li><img src="../img-stocks/settings.png" alt=""></img><a href="">Pengaturan</a></li>
           <li><img src="../img-stocks/log-out.png" alt=""></img><a href="../templates/login.php">Keluar</a></li>
@@ -68,34 +69,35 @@
         <div class="modal-body">
           <div class="modal-split">
             <div class="left-column">
+
               <div class="mb-3">
-                <label for="editEmail" class="form-label" >Email:</label>
-                <input type="email" class="form-control" id="editEmail" name="email" readonly>
+                <label for="editID" class="form-label">ID Kurir:</label>
+                <input type="text" class="form-control" id="editID" readonly name="id" value="<?php echo $row['id_kurir']?>">
               </div>
               <div class="mb-3">
-                  <label for="editEmail" class="form-label">Password:</label>
-                  <input type="text" class="form-control" id="editEmail" name="password" readonly>
+                <label for="editEmail" class="form-label" >Email:</label>
+                <input type="email" class="form-control" id="editEmail" name="email" readonly value="<?php echo $row['email']?>">
               </div>
               
               <div class="mb-3">
                 <label for="editNama" class="form-label">Nama:</label>
-                  <input type="text" class="form-control" id="editNama" name="nama" readonly>
+                  <input type="text" class="form-control" id="editNama" name="nama" readonly value="<?php echo $row['nama']?>">
               </div>
               
               </div>
               <div class="right-column">
                 <div class="mb-3">
                   <label for="editGender" class="form-label">Gender:</label>
-                  <input type="text" class="form-control" id="editGender" name="gender" readonly>
+                  <input type="text" class="form-control" id="editGender" name="gender" readonly value="<?php echo $row['gender']?>">
                   
               </div>
                 <div class="mb-3">
                   <label for="editNoHp" class="form-label">No Hp:</label>
-                  <input type="text" class="form-control" id="editNoHp" name="no_Hp" readonly>
+                  <input type="text" class="form-control" id="editNoHp" name="no_Hp" readonly value="<?php echo $row['no_Hp']?>">
                 </div>
                 <div class="mb-3">
                   <label for="editUsia" class="form-label">Usia:</label>
-                  <input type="number" class="form-control" id="editUsia" name="usia" readonly>
+                  <input type="number" class="form-control" id="editUsia" name="usia" readonly value="<?php echo $row['usia']?>">
                 </div>
                 
                 
@@ -103,7 +105,7 @@
       </div>
           </div>
           <div class="modal-footer">
-            <button class="btn btn-info mx-2"><a href="profileditkurir.html" class="text-white">Edit</a></button>
+            <button class="btn btn-info mx-2"><a href="profileditkurir.php" class="text-white">Edit</a></button>
             <button class="btn btn-danger"><a href="kuriredit.php" class="text-white">Kembali</a></button>
           </div>
       </div>

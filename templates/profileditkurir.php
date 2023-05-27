@@ -25,6 +25,7 @@
   </style>
   <body>
   <?php include '../connector/con_myjob.php'; ?>
+  <?php include '../connector/myprofile.php'; ?>
     <div class="background"></div>
     <nav>
       <a href="" class="logoS">
@@ -49,8 +50,8 @@
           ?>
         </h3>
         <ul class="">
-          <li><img src="../img-stocks/user.png" alt=""></img><a href="profilkurir.html">Profil</a></li>
-          <li><img src="../img-stocks/edit.png" alt=""></img><a href="profileditkurir.html">Edit Profil</a></li>
+          <li><img src="../img-stocks/user.png" alt=""></img><a href="profilkurir.php">Profil</a></li>
+          <li><img src="../img-stocks/edit.png" alt=""></img><a href="profileditkurir.php">Edit Profil</a></li>
           
           <li><img src="../img-stocks/settings.png" alt=""></img><a href="">Pengaturan</a></li>
           <li><img src="../img-stocks/log-out.png" alt=""></img><a href="../templates/login.php">Keluar</a></li>
@@ -61,44 +62,42 @@
     <h5 class="text-center mt-3"  id="editModalLabel">Edit Profil</h5>
 <div class="profil container-fluid bg-white w-75 m-auto mt-5">
 
-  <form id="editAIDI" class="modal-dialog" action="../connector/tambahuser.php" method="post">
+  <form id="editAIDI" class="modal-dialog" action="../connector/profiledit.php" method="post">
     <div class="modal-content">
       <div class="modal-header">
       </div>
         <div class="modal-body">
           <div class="modal-split">
             <div class="left-column">
+
+              <div class="mb-3">
+                <label for="editID" class="form-label">ID Kurir:</label>
+                <input type="text" class="form-control" id="editID" readonly name="id" value="<?php echo $row['id_kurir']?>">
+              </div>
               <div class="mb-3">
                 <label for="editEmail" class="form-label" >Email:</label>
-                <input type="email" class="form-control" id="editEmail" name="email"  >
+                <input type="email" class="form-control" id="editEmail" name="email" value="<?php echo $row['email']?>">
               </div>
-              <div class="mb-3">
-                  <label for="editEmail" class="form-label">Password:</label>
-                  <input type="text" class="form-control" id="editEmail" name="password"  >
-              </div>
-              
+
               <div class="mb-3">
                 <label for="editNama" class="form-label">Nama:</label>
-                  <input type="text" class="form-control" id="editNama" name="nama"   >
+                  <input type="text" class="form-control" id="editNama" name="nama" value="<?php echo $row['nama']?>">
               </div>
-              
+
               </div>
               <div class="right-column">
                 <div class="mb-3">
                   <label for="editGender" class="form-label">Gender:</label>
-                  <select class="form-select" id="editGender" name="gender">
-                    <option value="L">Laki-laki</option>
-                    <option value="P">Perempuan</option>
-                  </select>
+                  <input type="text" class="form-control" id="editGender" name="gender" value="<?php echo $row['gender']?>">
                   
               </div>
                 <div class="mb-3">
                   <label for="editNoHp" class="form-label">No Hp:</label>
-                  <input type="text" class="form-control" id="editNoHp" name="no_Hp"  >
+                  <input type="text" class="form-control" id="editNoHp" name="no_Hp" value="<?php echo $row['no_Hp']?>">
                 </div>
                 <div class="mb-3">
                   <label for="editUsia" class="form-label">Usia:</label>
-                  <input type="number" class="form-control" id="editUsia" name="usia"   >
+                  <input type="number" class="form-control" id="editUsia" name="usia" value="<?php echo $row['usia']?>">
                 </div>
                 
                 
@@ -106,7 +105,8 @@
       </div>
           </div>
           <div class="modal-footer">
-            <input class="btn btn-primary mt-3 text-white text-center" type="submit" value="Simpan" />
+            <input type="hidden" name="status" value="kurir">
+            <input class="btn btn-primary mt-3 text-white text-center" type="submit" value="Simpan Perubahan"/>
           </div>
       </div>
       </div>
