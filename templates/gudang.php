@@ -22,9 +22,53 @@
   </head>
 
   <style>
-    /* *{
-      border: 1px solid black; 
-    } */
+    *{
+      /* border: 1px solid black;  */
+    }
+
+    body {
+      background: url(../img-stocks/wepik3.png);
+    }
+        
+    .container-tabel {
+      width: 90%;
+      background-color: rgb(255, 255, 255);
+      border-radius: 20px;
+      box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    form-btn-hapus .btn {
+      border-radius:30px;
+    }
+
+    tbody td.para-button {
+    }
+    .btn-parent-tambah {
+      position:fixed;
+      right: 0;
+      bottom:0;
+    }
+
+    .btn-tambah {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 0;
+      font-size: 40px;
+      z-index: 9999;
+    }
+
+    .modal-split {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .left-column {
+      width: 80%;
+      margin-right: 15px;
+    }
   </style>
   <body>
   <?php include '../connector/con_gudang.php'; ?>
@@ -55,15 +99,15 @@
           ?>
         </h3>
         <ul class="">
-          <li><img src="../img-stocks/user.png" alt=""></img><a href="">Profil</a></li>
-          <li><img src="../img-stocks/edit.png" alt=""></img><a href="">Edit Profil</a></li>
+          <li><img src="../img-stocks/user.png" alt=""></img><a href="../templates/profiladmin.php">Profil</a></li>
+          <li><img src="../img-stocks/edit.png" alt=""></img><a href="../templates/profileditadmin.php">Edit Profil</a></li>
           <li><img src="../img-stocks/settings.png" alt=""></img><a href="">Pengaturan</a></li>
           <li><img src="../img-stocks/log-out.png" alt=""></img><a href="../templates/login.php">Keluar</a></li>
         </ul>
       </div>
     </div>
     
-    <h3 class="mt-4 text-center">Gudang :D</h3>
+    <h3 class="mt-4 text-center">Gudang</h3>
     
     <div class="container container-tabel mb-4 p-3">
       <table id="myTable" class="table table-striped">
@@ -85,18 +129,32 @@
                 echo "<td>".$row["alamat"]."</td>";
                 echo "<td>".$row["tanggal_kirim"]."</td>";
                 echo "<td>".$row["tanggal_simpan"]."</td>";
-                echo '<td>
-                        <button class="btn btn-primary btn-sm btn-edit">Edit</button>
-                        <button class="btn btn-sm "><i class="fa fa-plus-circle text-info btn-tambah"></i></button>
+                echo '<td class = "para-button">
+                        <button class="btn btn-primary btn-sm btn-edit ">Edit</button>
+                        <button class="btn btn-sm btn-parent-tambah"><i class="fa fa-plus-circle text-info btn-tambah"></i></button>
                         <form action="../connector/hapusgudang.php" method="post">
                           <input type="hidden" name="id_gudang" value="'; echo $row["id_gudang"]; echo '">
-                          <button class="btn btn-danger btn-sm btn-hapus" type="Delete">Delete</button>
+                          <button class="btn btn-danger btn-sm btn-hapus mt-2" type="Delete">Delete</button>
                         </form>
                       </td>';
                 echo "</tr>";
               }
           } else {
-              echo "<tr><td colspan='7'>Tidak ada data dalam tabel.</td></tr>";
+            echo "<tr>";
+            echo "<td></td>";
+            echo "<td></td>";
+            echo "<td></td>";
+            echo "<td></td>";
+            echo "<td colspan = '2'>Tidak ada data dalam tabel</td>";
+            echo "<td></td>";
+            echo "<td></td>";
+            echo "<td></td>";
+            echo "<td></td>";
+            echo "<td></td>";
+            echo '<td>
+              <button class="btn btn-sm "><i class="fa fa-plus-circle text-info btn-tambah"></i></button>
+              </td>';
+            echo "</tr>";
           }
         ?>
         </tbody>
@@ -151,22 +209,22 @@
       </div>
       <div class="modal-body">
         <div class="modal-split">
-          <div c  lass="left-column">
-            <div class="mb-3">
+          <div class="left-column">
+            <!-- <div class="mb-3">
               <label for="editIDGudang" class="form-label">ID Gudang:</label>
               <input type="text" class="form-control" id="editIDGudang" readonly name="id_gudang">
-            </div>
+            </div> -->
             <div class="mb-3">
               <label for="editAlamat" class="form-label">Alamat Gudang:</label>
               <input type="text" class="form-control" id="editAlamat" name="alamat">
             </div>
             <div class="mb-3">
               <label for="editTglKirim" class="form-label">Tanggal Kirim</label>
-              <input type="text" class="form-control" id="editTglKirim"  name="tanggal_kirim" >
+              <input type="datetime-local" class="form-control" id="editTglKirim"  name="tanggal_kirim" >
             </div>           
             <div class="mb-3">
               <label for="editTglSampai" class="form-label">Tanggal Sampai:</label>
-              <input type="text" class="form-control" id="editTglSampai"  name="tanggal_simpan" >
+              <input type="datetime-local" class="form-control" id="editTglSampai"  name="tanggal_simpan" >
             </div>                     
           </div>
         </div>
