@@ -194,16 +194,15 @@ nav ul li a:hover {
 .modal-split {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .left-column {
-  width: 40%;
+  width: 100%;
   margin-right: 15px;
 }
 
-.right-column {
-  width: 60%;
-}
 .left-column,
 .right-column {
   height: 100%;

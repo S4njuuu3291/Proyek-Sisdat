@@ -245,7 +245,7 @@ ul.container-fluid li.head-tabel ul li {
   padding: 10px;
   background-color: white;
   border-radius: 10px;
-  width: 100%;
+  width: 130%;
   margin-left: px;
 }
 
@@ -254,24 +254,10 @@ ul.container-fluid li.head-tabel ul li {
 }
 
 .tentang-barang li {
-  padding-top: 10px;
 }
 
-.id_barang {
-  width: 20%;
-}
-
-.tanggal_kirim {
+.tanggal_sampai {
   width: 25%;
-}
-
-.alamat {
-  width: 40%;
-}
-
-.status_barang,
-.status_barang_ket {
-  width: 15%;
 }
 
 .modal-dialog.my-custom-dialog {
@@ -290,25 +276,33 @@ ul.container-fluid li.head-tabel ul li {
 }
 
 .btn.util-oren {
-  background-color: #f8d804;
+  background-color: #04eef7;
   padding: 3px 10px;
   font-size: 14px;
+  margin-top: -10px;
+  margin-right: 10px;
+  color: rgb(47, 44, 44);
 }
 
 .btn.util-oren:hover {
   background-color: #abe714;
+  translate: 6px;
+  transition: 0.3s ease-in-out;
 }
 
 .tentang-barang .table-head {
   font-weight: bold;
   font-size: 17px;
   display: flex;
+  margin-top: 10px;
   justify-content: space-evenly;
 }
 
 .tentang-barang .table-isi {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  padding-bottom: 0;
+  align-items: center;
 }
 
 .tentang-barang .table-isi p,
@@ -318,15 +312,14 @@ ul.container-fluid li.head-tabel ul li {
 }
 p.status_barang_ket {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  padding: 0;
-  font-size: 19px;
+  padding: 0 10px;
+  text-align: center;
   font-weight: 100;
 }
 
 .status_barang_ket i {
   font-size: 30px;
-  margin-left: 7px;
-  color: orange;
+  color: rgb(3, 115, 37);
 }

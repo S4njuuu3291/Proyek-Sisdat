@@ -22,9 +22,29 @@
   </head>
 
   <style>
-    /* *{
-      border: 1px solid black; 
-    } */
+    *{
+      /* border: 1px solid black;  */
+    }
+    body {
+      background: url(../img-stocks/wepik3.png);
+    }
+        
+    .container-tabel {
+      width: 70%;
+      background-color: rgb(255, 255, 255);
+      border-radius: 20px;
+      box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    form-btn-hapus .btn {
+      border-radius:30px;
+    }
+
+    tbody td.para-button {
+      display : flex;
+      justify-content : space-around;
+    }
+    
   </style>
   <body>
   <?php include '../connector/con_user.php'; ?>
@@ -63,9 +83,9 @@
       </div>
     </div>
     
-    <h3 class="mt-4 text-center">User :D</h3>
+    <h3 class="mt-4 text-center">User</h3>
     
-    <div class="container container-tabel mb-4 p-3 w-75" >
+    <div class="container-fluid container-tabel mb-4 p-3 " >
       <table id="myTable" class="table table-striped">
         <thead>
             <tr>
@@ -83,10 +103,10 @@
                 echo "<td>".$row["email"]."</td>";
                 echo "<td>".$row["password"]."</td>";
                 echo "<td>".$row["status"]."</td>";
-                echo '<td>
+                echo '<td class = "para-button">
                         <button class="btn btn-primary btn-sm btn-edit">Edit</button>
                         
-                        <form action="../connector/hapususer.php" method="post">
+                        <form action="../connector/hapususer.php" method="post" class = "form-btn-hapus">
                           <input type="hidden" name="email" value="'; echo $row["email"]; echo '">
                           <button class="btn btn-danger btn-sm btn-hapus" type="Delete">Delete</button>
                           </form>
@@ -94,7 +114,12 @@
                           echo "</tr>";
               }
             } else {
-              echo "<tr><td colspan='7'>Tidak ada data dalam tabel.</td></tr>";
+              echo "<tr>";
+                echo "<td></td>";
+                echo "<td colspan = '2'>Tidak ada data dalam tabel</td>";
+                echo "<td></td>";
+                echo '<td></td>';
+                echo "</tr>";
             }
           ?>
             

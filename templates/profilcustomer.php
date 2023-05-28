@@ -60,8 +60,8 @@
       </div>
     </div>
 
-    <h5 class="text-center mt-3"  id="editModalLabel">Profil</h5>
-    <div class="profil container-fluid bg-white w-75 m-auto mt-5">
+    <h5 class="text-center mt-4 profil-judul"  id="editModalLabel">Profil</h5>
+    <div class="profil-container container-fluid w-50">
     
       <form class="modal-dialog" id="editAIDI" action="../connector/edit.php" method="post">
         <div class="modal-content">

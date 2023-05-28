@@ -32,8 +32,6 @@
       </a>
       <ul>
         <li><a href="../templates/kuriredit.php">Paket Antar</a></li>
-        <li><a href="#">Hubungi</a></li>
-        <li><a href="#">FAQ</a></li>
       </ul>
     </nav>
 
@@ -60,7 +58,7 @@
 
     <!-- Barangan -->
     <div class="title-barangan mt-4 text-center">
-      <h3 class="">Paket :D </h3>
+      <h3 class="">Paket</h3>
       
     </div>
     <ul class="list-group container-fluid mt-4">
@@ -103,7 +101,7 @@
             <div class="modal-dialog modal-dialog-centered  my-custom-dialog">
               <div class="modal-content ">
                 <div class="modal-header text-center d-flex justify-content-center">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Paket 13478923888A78
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Paket '.$row["id_barang"].'
                   </h1>
                   
                 </div>

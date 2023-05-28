@@ -22,9 +22,43 @@
   </head>
 
   <style>
-    /* *{
-      border: 1px solid black; 
-    } */
+    *{
+      /* border: 1px solid black;  */
+    }
+
+    .left-column {
+      width: 60%;
+      margin-right: 15px;
+    }
+
+    .right-column {
+      width: 50%;
+    }
+    .left-column,
+    .right-column {
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: url(../img-stocks/wepik3.png);
+    }
+        
+    .container-tabel {
+      width: 80%;
+      background-color: rgb(255, 255, 255);
+      border-radius: 20px;
+      box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    form-btn-hapus .btn {
+      border-radius:30px;
+    }
+
+    tbody td.para-button {
+      display : flex;
+      justify-content : start;
+    }
   </style>
   <body>
   <?php include '../connector/con_admin.php'; ?>
@@ -55,8 +89,8 @@
           ?>
         </h3>
         <ul class="">
-          <li><img src="../img-stocks/user.png" alt=""></img><a href="">Profil</a></li>
-          <li><img src="../img-stocks/edit.png" alt=""></img><a href="">Edit Profil</a></li>
+        <li><img src="../img-stocks/user.png" alt=""></img><a href="../templates/profiladmin.php">Profil</a></li>
+          <li><img src="../img-stocks/edit.png" alt=""></img><a href="../templates/profileditadmin.php">Edit Profil</a></li>
           
           <li><img src="../img-stocks/settings.png" alt=""></img><a href="">Pengaturan</a></li>
           <li><img src="../img-stocks/log-out.png" alt=""></img><a href="../templates/login.php">Keluar</a></li>
@@ -64,7 +98,7 @@
       </div>
     </div>
     
-    <h3 class="mt-4 text-center">Admin :D</h3>
+    <h3 class="mt-4 text-center">Admin</h3>
     
     <div class="container container-tabel mb-4 p-3">
       <table id="myTable" class="table table-striped">
@@ -90,7 +124,7 @@
                 echo "<td>".$row["gender"]."</td>";
                 echo "<td>".$row["no_Hp"]."</td>";
                 echo "<td>".$row["email"]."</td>";
-                echo '<td>
+                echo '<td class = "para-button">
                   <button class="btn btn-primary btn-sm btn-edit" type="submit">Edit</button>
                   <button class="btn btn-sm "><i class="fa fa-plus-circle text-info btn-tambah"></i></button>
                 <form action="../connector/hapus.php" method="post">
@@ -103,6 +137,11 @@
               }
           } else {
               echo "<tr><td colspan='7'>Tidak ada data dalam tabel.</td></tr>";
+              echo '<td class = "para-button">
+                  <button class="btn btn-primary btn-sm btn-edit" type="submit">Edit</button>
+                  <button class="btn btn-sm "><i class="fa fa-plus-circle text-info btn-tambah"></i></button>
+                <form action="../connector/hapus.php" method="post">
+                  <input type="hidden" name="email" value="';
           }
         ?>
           
@@ -124,32 +163,33 @@
                 <div class="modal-split">
                   <div class="left-column">
                     <div class="mb-3">
-                      <label for="editID" class="form-label">ID Admin:</label>
+                      <label for="editID" class="form-label">ID Admin :</label>
                       <input type="text" class="form-control" id="editID" readonly name="id">
                     </div>
                     <div class="mb-3">
-                      <label for="editNama" class="form-label">Nama:</label>
+                      <label for="editNama" class="form-label">Nama :</label>
                         <input type="text" class="form-control" id="editNama" name="nama">
                       </div>
                     <div class="mb-3">
-                      <label for="editUsia" class="form-label">Usia:</label>
+                      <label for="editUsia" class="form-label">Usia :</label>
                       <input type="number" class="form-control" id="editUsia" name="usia">
                     </div>
                     
                 </div>
                 <div class="right-column">
                     <div class="mb-3">
-                      <label for="editNoHp" class="form-label">No Hp:</label>
+                      <label for="editNoHp" class="form-label">No Hp :</label>
                       <input type="text" class="form-control" id="editNoHp" name="no_Hp">
                     </div>
                     
                     <div class="mb-3">
-                      <label for="editEmail" class="form-label">Email:</label>
+                      <label for="editEmail" class="form-label">Email :</label>
                       <input type="email" class="form-control" id="editEmail" name="email">
                     </div>
                     <div class="mb-3">
-                      <label for="editGender" class="form-label">Gender:</label>
+                      <label for="editGender" class="form-label">Gender :</label>
                       <select class="form-select" id="editGender" name="gender">
+                        
                         <option value="L">Laki-laki</option>
                         <option value="P">Perempuan</option>
                       </select>
@@ -167,7 +207,7 @@
       </form>
 </div>
 
-<!-- Modal Edit -->
+<!-- Modal Tambah -->
 <div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
     
     <form id="tambahModal" class="modal-dialog" action="../connector/tambahuser.php" method="post">
@@ -180,34 +220,35 @@
               <div class="modal-split">
                 <div class="left-column">
                   <div class="mb-3">
-                    <label for="editEmail" class="form-label">Email:</label>
+                    <label for="editEmail" class="form-label">Email :</label>
                     <input type="email" class="form-control" id="editEmail" name="email">
                   </div>
                   <div class="mb-3">
-                      <label for="editEmail" class="form-label">password:</label>
+                      <label for="editEmail" class="form-label">Password :</label>
                       <input type="text" class="form-control" id="editEmail" name="password">
                   </div>
                   
                   <div class="mb-3">
-                    <label for="editNama" class="form-label">Nama:</label>
+                    <label for="editNama" class="form-label">Nama :</label>
                       <input type="text" class="form-control" id="editNama" name="nama">
                   </div>
                   
                   </div>
                   <div class="right-column">
                     <div class="mb-3">
-                      <label for="editGender" class="form-label">Gender:</label>
+                      <label for="editGender" class="form-label">Gender :</label>
                       <select class="form-select" id="editGender" name="gender">
+                      <option value=""></option>
                         <option value="L">Laki-laki</option>
                         <option value="P">Perempuan</option>
                       </select>
                   </div>
                     <div class="mb-3">
-                      <label for="editNoHp" class="form-label">No Hp:</label>
+                      <label for="editNoHp" class="form-label">No Hp :</label>
                       <input type="text" class="form-control" id="editNoHp" name="no_Hp">
                     </div>
                     <div class="mb-3">
-                      <label for="editUsia" class="form-label">Usia:</label>
+                      <label for="editUsia" class="form-label">Usia :</label>
                       <input type="number" class="form-control" id="editUsia" name="usia">
                     </div>
                     

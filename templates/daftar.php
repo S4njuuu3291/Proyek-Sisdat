@@ -15,68 +15,73 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
   <style>
-    /* * {
-      border: 1px solid black;
-    } */
+    * {
+      /* border: 1px solid black; */
+    }
   </style>
 
   <body>
     <section class="regis">
       <img src="../img-stocks/anterinaja.png" alt="" class="logo align-self-center mt-3 mb-3" />
-      <form action="../connector/connector.php" class="regis-akun" method="post">
-        <section class="regis1 regis-akun">
-          <div class="d-flex align-items-center justify-content-evenly text-center">
-            <div class="bungkus h-25 w-50 tingginya">Daftar dulu yaa..</div>
+      <form
+        action="../connector/connector.php"
+        class="
+      "
+        method="post"
+      >
+        <section class="regis-akun pb-4">
+          <div class="d-flex align-items-center justify-content-evenly text-center bungkus mb-3">
+            <div class="bungkus h-100 w-50 tingginya">Daftar dulu yaa..</div>
             <img src="../img-stocks/maskot.png" alt="" class="maskot w-25" />
           </div>
           <?php if (isset($_GET['error'])){ ?>
-              <p class="error"><?php echo $_GET['error']; ?></p> 
+          <p class="error"><?php echo $_GET['error']; ?></p>
           <?php } ?>
           <div class="align-items-center w-100">
             <div class="col-auto">
-              <label for="inputEmail" class="col-form-label">Email : </label>
+              <label for="inputEmail" class="col-form-label">Email </label>
             </div>
-            <div class="col-auto">
-              <input type="email" id="inputEmail" class="form-control" name="email"/>
-            </div>
-          </div>
-          
-          <div class="align-items-center w-100 mt-2">
-            <div class="col-auto">
-              <label for="inputPassword" class="col-form-label">Password : </label>
-            </div>
-            <div class="col-auto">
-              <input type="text" id="inputPassword" class="form-control" name="password"/>
+            <div class="col-auto w-100">
+              <input type="email" id="inputEmail" class="form-control" name="email" />
             </div>
           </div>
 
           <div class="align-items-center w-100 mt-2">
             <div class="col-auto">
-              <label for="ulangiPassword" class="col-form-label">Ulangi Password : </label>
+              <label for="inputPassword" class="col-form-label">Password </label>
             </div>
             <div class="col-auto">
-              <input type="text" id="ulangiPassword" class="form-control" name="ulang"/>
+              <input type="text" id="inputPassword" class="form-control" name="password" />
+            </div>
+          </div>
+
+          <div class="align-items-center w-100 mt-2">
+            <div class="col-auto">
+              <label for="ulangiPassword" class="col-form-label">Ulangi Password </label>
+            </div>
+            <div class="col-auto">
+              <input type="text" id="ulangiPassword" class="form-control" name="ulang" />
             </div>
           </div>
           <a href="#section-id" class="scroll-down text-primary mt-3"><i class="fas fa-arrow-down"></i></a>
         </section>
 
-        <section class="regis2 regis-akun mt-4 mb-4" id="section-id">
+        <section class="regis2 regis-akun mt-4 mb-4 pb-4" id="section-id">
           <div class="align-items-center w-100">
             <div class="col-auto">
-              <label for="inputNama" class="col-form-label">Nama : </label>
+              <label for="inputNama" class="col-form-label">Nama </label>
             </div>
             <div class="col-auto">
-              <input type="text" id="inputNama" class="form-control" name="nama"/>
+              <input type="text" id="inputNama" class="form-control" name="nama" />
             </div>
           </div>
 
           <div class="g-1 align-items-center mt-2 w-100">
             <div class="col-auto">
-              <label for="inputUsia" class="col-form-label">Usia : </label>
+              <label for="inputUsia" class="col-form-label">Usia </label>
             </div>
             <div class="col-auto">
-              <input type="number" id="inputUsia" class="form-control" name="usia"/>
+              <input type="number" id="inputUsia" class="form-control" name="usia" />
             </div>
 
             <div class="csol-auto">
@@ -86,7 +91,7 @@
 
           <div class="align-items-center w-100">
             <div class="col-auto">
-              <label for="inputJK" class="col-form-label">Jenis Kelamin : </label>
+              <label for="inputJK" class="col-form-label">Jenis Kelamin </label>
             </div>
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="gender" id="inputJK" value="L" />
@@ -100,23 +105,23 @@
 
           <div class="align-items-center w-100">
             <div class="col-auto">
-              <label for="inputNoHp" class="col-form-label">No. Handphone : </label>
+              <label for="inputNoHp" class="col-form-label">No. Handphone </label>
             </div>
             <div class="col-auto">
-              <input type="text" id="inputNoHp" class="form-control" name="no_Hp"/>
+              <input type="text" id="inputNoHp" class="form-control" name="no_Hp" />
             </div>
           </div>
 
           <div class="align-items-center w-100">
             <div class="col-auto">
-              <label for="inputAlamat" class="col-form-label">Alamat : </label>
+              <label for="inputAlamat" class="col-form-label">Alamat </label>
             </div>
             <div class="col-auto">
-              <input type="text" id="inputAlamat" class="form-control" name="alamat"/>
+              <input type="text" id="inputAlamat" class="form-control" name="alamat" />
             </div>
           </div>
 
-          <input class="btn btn-warning mt-3 text-white text-center" type="submit" value="Daftar" />
+          <input class="btn btn-submit-daftar btn-warning mt-3 text-white text-center w-50 p-auto" type="submit" value="Daftar" />
         </section>
       </form>
     </section>

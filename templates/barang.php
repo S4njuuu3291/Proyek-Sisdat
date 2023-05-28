@@ -25,6 +25,19 @@
     /* *{
       border: 1px solid black; 
     } */
+    .left-column {
+      width: 55%;
+      margin-right: 15px;
+    }
+
+    .right-column {
+      width: 45%;
+    }
+    .left-column,
+    .right-column {
+      height: 100%;
+      box-sizing: border-box;
+    }
   </style>
   <body>
   <?php include '../connector/con_barang.php'; ?>
@@ -55,15 +68,15 @@
           ?>
         </h3>
         <ul class="">
-          <li><img src="../img-stocks/user.png" alt=""></img><a href="">Profil</a></li>
-          <li><img src="../img-stocks/edit.png" alt=""></img><a href="">Edit Profil</a></li>
+        <li><img src="../img-stocks/user.png" alt=""></img><a href="../templates/profiladmin.php">Profil</a></li>
+          <li><img src="../img-stocks/edit.png" alt=""></img><a href="../templates/profileditadmin.php">Edit Profil</a></li>
           <li><img src="../img-stocks/settings.png" alt=""></img><a href="">Pengaturan</a></li>
           <li><img src="../img-stocks/log-out.png" alt=""></img><a href="../templates/login.php">Keluar</a></li>
         </ul>
       </div>
     </div>
     
-    <h3 class="mt-4 text-center">Barang :D</h3>
+    <h3 class="mt-4 text-center">Barang</h3>
     
     <div class="container-fluid container-tabel mb-4 p-3">
       <table id="myTable" class="table table-striped">
@@ -108,7 +121,21 @@
                 echo "</tr>";
               }
           } else {
-              echo "<tr><td colspan='7'>Tidak ada data dalam tabel.</td></tr>";
+            echo "<tr>";
+                echo "<td></td>";
+                echo "<td></td>";
+                echo "<td></td>";
+                echo "<td></td>";
+                echo "<td colspan = '2'>Tidak ada data dalam tabel</td>";
+                echo "<td></td>";
+                echo "<td></td>";
+                echo "<td></td>";
+                echo "<td></td>";
+                echo "<td></td>";
+                echo '<td>
+                  <button class="btn btn-sm "><i class="fa fa-plus-circle text-info btn-tambah"></i></button>
+                  </td>';
+                echo "</tr>";
           }
         ?>
           
@@ -192,10 +219,11 @@
       </div>
       <div class="modal-body">
         <div class="modal-split">
-          <div class="left-column">
-            <div class="mb-2">
+        <div class="left-column">
+            
+            <div class="mb-2 d-none">
               <label for="editidBarang" class="form-label">ID Barang:</label>
-              <input type="text" class="form-control" id="editidBarang" readonly name="id_barang">
+              <input type="text" class="form-control" id="editidBarang" name="id_barang">
             </div>
             <div class="mb-2">
               <label for="editidCustomer" class="form-label">ID Customer:</label>
@@ -217,7 +245,11 @@
           <div class="right-column">
             <div class="mb-2">
               <label for="editTglKirim" class="form-label">Tanggal Kirim:</label>
-              <input type="text" class="form-control" id="editTglKirim"  name="tanggal_kirim" >
+              <input type="datetime-local" class="form-control" id="editTglKirim"  name="tanggal_kirim" >
+            </div>
+            <div class="mb-2">
+              <label for="editTglKirim" class="form-label">Tanggal Sampai:</label>
+              <input type="datetime-local" class="form-control" id="editTglSampai"  name="tanggal_sampai" >
             </div>
             
             <div class="mb-2">
@@ -339,4 +371,3 @@
 
   </script>
 </html>
-

@@ -198,12 +198,12 @@ nav ul li a:hover {
 }
 
 .left-column {
-  width: 40%;
+  width: 50%;
   margin-right: 15px;
 }
 
 .right-column {
-  width: 60%;
+  width: 50%;
 }
 .left-column,
 .right-column {
@@ -222,4 +222,5 @@ nav ul li a:hover {
 button .btn-tambah {
   border-radius: 50%;
   background-color: white;
+  z-index: 9999;
 }

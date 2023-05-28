@@ -25,6 +25,25 @@
     /* *{
       border: 1px solid black; 
     } */
+    body {
+      background: url(../img-stocks/wepik3.png);
+    }
+        
+    .container-tabel {
+      width: 70%;
+      background-color: rgb(255, 255, 255);
+      border-radius: 20px;
+      box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    form-btn-hapus .btn {
+      border-radius:30px;
+    }
+
+    tbody td.para-button {
+      display : flex;
+      justify-content : space-around;
+    }
   </style>
   <body>
     <?php include '../connector/con_customer.php'; ?>
@@ -55,15 +74,15 @@
           ?>
         </h3>
         <ul class="">
-          <li><img src="../img-stocks/user.png" alt=""></img><a href="">Profil</a></li>
-          <li><img src="../img-stocks/edit.png" alt=""></img><a href="">Edit Profil</a></li>
+        <li><img src="../img-stocks/user.png" alt=""></img><a href="../templates/profiladmin.php">Profil</a></li>
+          <li><img src="../img-stocks/edit.png" alt=""></img><a href="../templates/profileditadmin.php">Edit Profil</a></li>
           <li><img src="../img-stocks/settings.png" alt=""></img><a href="">Pengaturan</a></li>
           <li><img src="../img-stocks/log-out.png" alt=""></img><a href="../templates/login.php">Keluar</a></li>
         </ul>
       </div>
     </div>
     
-    <h3 class="mt-4 text-center">Customer :D</h3>
+    <h3 class="mt-4 text-center">Customer</h3>
     
     <div class="container-fluid container-tabel mb-4 p-3">
       <table id="myTable" class="table table-striped">
@@ -76,7 +95,7 @@
             <th>No. Hp</th>
             <th>Alamat</th>
             <th>Email</th>
-            <th></th>
+            <th>Edit :)</th>
           </tr>
       </thead>
       <tbody>
@@ -91,7 +110,7 @@
                 echo "<td>".$row["no_Hp"]."</td>";
                 echo "<td>".$row["alamat"]."</td>";
                 echo "<td>".$row["email"]."</td>";
-                echo '<td>
+                echo '<td class = "para-button">
                   <button class="btn btn-primary btn-sm btn-edit" type="submit">Edit</button>
                 <form action="../connector/hapus.php" method="post">
                   <input type="hidden" name="email" value="'; echo $row["email"]; echo '">
@@ -101,7 +120,16 @@
                 echo "</tr>";
               }
           } else {
-              echo "<tr><td colspan='7'>Tidak ada data dalam tabel.</td></tr>";
+            echo "<tr>";
+            echo "<td></td>";
+            echo "<td></td>";
+            echo "<td></td>";
+            echo "<td colspan = '2'>Tidak ada data dalam tabel</td>";
+            echo "<td></td>";
+            echo "<td></td>";
+            echo "<td></td>";
+            echo '<td> </td>';
+            echo "</tr>";
           }
         ?>
         </tbody>

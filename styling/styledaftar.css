@@ -7,7 +7,8 @@ a {
   /* border: 1px solid black;  */
 }
 body {
-  background: url(../img-stocks/wepik-yellow-black-and-gray-geometric-background-2023051305575054I2.png) no-repeat center center/cover;
+  background: url(../img-stocks/wepik3.png);
+  height: 100vh;
 }
 section.regis {
   display: flex;
@@ -32,12 +33,14 @@ form {
   justify-content: center;
   flex-direction: column;
 }
-.regis-akun,
-.bungkus {
+
+form input {
+}
+.regis-akun {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  padding: 40px 30px;
+  padding: 10px 30px;
   justify-content: space-evenly;
   align-items: center;
   width: 400px;
@@ -46,6 +49,9 @@ form {
   border-radius: 30px;
   background: white;
   overflow: visible;
+}
+
+.bungkus {
 }
 
 .regis1 .tingginya {
@@ -73,11 +79,36 @@ img.pemanis {
 .scroll-down {
   /* transform: translateX(-50%); */
   font-size: 24px;
+  animation: floating ease-in-out infinite 2s;
 }
 .error {
-  background: #F2DEDE;
+  background: #f2dede;
   color: #a94442;
   padding: 10px;
   width: 95%;
+  height: 30px;
   border-radius: 5px;
+}
+
+@keyframes floating {
+  0% {
+    transform: translatey(-10px);
+  }
+  50% {
+    transform: translatey(17px) scale(1.2);
+  }
+  100% {
+    transform: translatey(-10px);
+  }
+}
+
+.btn-submit-daftar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-submit-daftar:hover {
+  background-color: rgb(175, 153, 14);
+  border: none;
 }

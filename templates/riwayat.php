@@ -22,6 +22,22 @@
     *{
       /* border: 1px solid black;  */
     }
+    .id_barang {
+      width: 10%;
+    }
+    .tanggal_sampai {
+      width: 25%;
+    }
+    .alamat {
+      width: 35%;
+    }
+    .status_barang,
+    .status_barang_ket {
+      width: 20%;
+    }
+    .tentang-barang .table-isi {
+      
+    }
   </style>
   <body>
   <?php include '../connector/myriwayat.php'; ?>
@@ -33,8 +49,8 @@
       <ul>
         <li><a href="../templates/paketcust.php">Paket Saya</a></li>
         <li><a href="../templates/riwayat.php">Riwayat</a></li>
-        <li><a href="#">Hubungi</a></li>
-        <li><a href="#">FAQ</a></li>
+        <!-- <li><a href="#">Hubungi</a></li> -->
+        <!-- <li><a href="#">FAQ</a></li> -->
       </ul>
     </nav>
 
@@ -50,15 +66,15 @@
           ?>
         </h3>
         <ul class="">
-          <li><img src="../img-stocks/user.png" alt=""></img><a href="">Profil</a></li>
-          <li><img src="../img-stocks/edit.png" alt=""></img><a href="">Edit Profil</a></li>
+          <li><img src="../img-stocks/user.png" alt=""></img><a href="profilcustomer.php">Profil</a></li>
+          <li><img src="../img-stocks/edit.png" alt=""></img><a href="profileditcustomer.php">Edit Profil</a></li>
           <li><img src="../img-stocks/settings.png" alt=""></img><a href="">Pengaturan</a></li>
           <li><img src="../img-stocks/log-out.png" alt=""></img><a href="../templates/login.php">Keluar</a></li>
         </ul>
       </div>
     </div>
     
-    <h3 class="mt-4 text-center">Paket Selesai :D</h3>
+    <h3 class="mt-4 text-center">Paket Selesai</h3>
     <ul class="list-group container-fluid mt-4 pb-4 w-75">
     <?php
         if ($result->num_rows > 0){
@@ -67,17 +83,19 @@
       <div class="tentang-barang mb-3">
         <li class="table-head">
             <p class="id_barang">ID Barang</p>
-            <p class="tanggal_kirim">Nama Penerima</p>
+            <p class="tanggal_sampai">Tanggal Sampai</p>
             <p  class="alamat">Alamat Penerima</p>
             <p class="status_barang">Status Barang</p>
         </li>
         <li class="table-isi">
             <p class="id_barang">'.$row["id_barang"].'</p>
-            <p class="tanggal_kirim">'.$row["tanggal_kirim"].'</p>
+            <p class="tanggal_sampai">'.$row["tanggal_sampai"].'</p>
             <p class="alamat">
             '.$row["alamat_penerima"].'
             </p>
-            <p class="status_barang_ket">'.$row["status_barang"].'<i class="fa-regular fa-circle-check"></i></p>
+            <p class="status_barang_ket">
+            <span>'.$row["status_barang"].'</span>
+            <i class="fa-regular fa-circle-check"></i></p>
         
           </li>
           
@@ -89,7 +107,7 @@
             <div class="modal-dialog modal-dialog-centered  my-custom-dialog">
               <div class="modal-content ">
                 <div class="modal-header text-center d-flex justify-content-center">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Paket 13478923888A78</h1>
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Paket '.$row["id_barang"].'</h1>
                   
                 </div>
                 <div class="modal-body">
