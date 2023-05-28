@@ -21,6 +21,15 @@
         die('Koneksi gagal'.$koneksi->connect_error);
     } else 
     { 
+        if (empty($id_kurir)){
+            $id_kurir = null;
+        }
+        if (empty($id_gudang)){
+            $id_gudang = null;
+        }
+        if (empty($tanggal_sampai)){
+            $tanggal_sampai = null;
+        }
         $stmt = $koneksi->prepare("UPDATE barang SET 
         id_customer = ?, alamat_penerima = ?, no_Hp_penerima = ?, nama_penerima = ?,
         tanggal_kirim = ?, tanggal_sampai = ?, id_kurir = ?, id_gudang = ?, status_barang = ?
