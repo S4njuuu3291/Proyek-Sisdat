@@ -85,15 +85,16 @@
               <span class='status_barang'>".$row["status_barang"]." ".$row["alamat"]."</span>
             </div>
 
-          <button type='button' class='btn text-white util-blue mt-2' data-bs-toggle='modal' data-bs-target='#exampleModal'>
+          <button type='button' class='btn text-white util-blue mt-2' data-bs-toggle='modal' data-bs-target='#exampleModal".$row["id_barang"]."'>
             Detail Lengkap >
           </button>
-      
-          <div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                
+          <div class='modal fade' id='exampleModal".$row["id_barang"]."' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+          
             <div class='modal-dialog modal-dialog-centered  my-custom-dialog'>
               <div class='modal-content '>
                 <div class='modal-header text-center d-flex justify-content-center'>
-                  <h1 class='modal-title fs-5' id='exampleModalLabel'>Detail Paket 13478923888A78</h1>
+                  <h1 class='modal-title fs-5' id='exampleModalLabel'>Detail Paket ".$row["id_barang"]."</h1>
                   
                 </div>
                 <div class='modal-body'>
