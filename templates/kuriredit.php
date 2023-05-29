@@ -84,7 +84,7 @@
               <span class="status_barang status_barang_isi">'.$row["status_barang"].' '.$row["alamat"].'</span>
             </div>
 
-          <button type="button" class="btn text-white util-blue mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <button type="button" class="btn text-white util-blue mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row["id_barang"].'">
             Detail Lengkap >
           </button>
           
@@ -97,7 +97,7 @@
           </form>
 
       
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="exampleModal'.$row["id_barang"].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered  my-custom-dialog">
               <div class="modal-content ">
                 <div class="modal-header text-center d-flex justify-content-center">

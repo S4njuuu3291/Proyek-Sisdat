@@ -99,11 +99,11 @@
         
           </li>
           
-          <button type="button" class="btn util-oren" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <button type="button" class="btn util-oren" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row["id_barang"].'">
             Detail Lengkap >
           </button>
       
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="exampleModal'.$row["id_barang"].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered  my-custom-dialog">
               <div class="modal-content ">
                 <div class="modal-header text-center d-flex justify-content-center">

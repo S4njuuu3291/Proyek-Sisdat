@@ -109,11 +109,7 @@
                 echo "<td>".$row["tanggal_sampai"]."</td>";
                 echo "<td>".$row["id_kurir"]."</td>";
                 echo "<td>".$row["id_gudang"]."</td>";
-                if ($row["tanggal_sampai"] === null){
-                  echo "<td>".$row["status"]."</td>";
-                } else {
-                  echo "<td>Sampai di penerima</td>";
-                };
+                
                 echo "<td>".$row["status_barang"]."</td>";
                 echo '<td>
                         <button class="btn btn-primary btn-sm btn-edit">Edit</button>
@@ -273,7 +269,7 @@
                         <option value=""></option>
                         <option value="Dikirim ke gudang">Dikirim ke gudang</option>
                         <option value="Sampai di gudang">Sampai di gudang</option>
-                        <option value=">Dikirim ke penerima">Dikirim ke penerima</option>
+                        <option value="Dikirim ke penerima">Dikirim ke penerima</option>
                         <option value="Sampai di penerima">Sampai di penerima</option>
                       </select>
             </div>           

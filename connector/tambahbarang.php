@@ -21,15 +21,17 @@ if ($koneksi->connect_error){
     die('Koneksi gagal'.$koneksi->connect_error);
 } else 
 {
-    if (empty($id_kurir)){
-        $id_kurir = null;
-    }
     if (empty($id_gudang)){
         $id_gudang = null;
     }
+    if (empty($id_kurir)){
+        $id_kurir = null;
+    }
+    
     if (empty($tanggal_sampai)){
         $tanggal_sampai = null;
     }
+        echo $status_barang;
         $stmt = $koneksi->prepare("INSERT INTO barang(id_customer, alamat_penerima, no_Hp_penerima, nama_penerima,
         tanggal_kirim, tanggal_sampai, id_kurir, id_gudang, status_barang) VALUE 
         (?,?,?,?,?,?,?,?,?);");
@@ -39,7 +41,7 @@ if ($koneksi->connect_error){
         $stmt->close();
         
         $koneksi->close();
-    
+        echo $status_barang;
     
 }
 header("Location: ../templates/barang.php");
