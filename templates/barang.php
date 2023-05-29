@@ -109,6 +109,11 @@
                 echo "<td>".$row["tanggal_sampai"]."</td>";
                 echo "<td>".$row["id_kurir"]."</td>";
                 echo "<td>".$row["id_gudang"]."</td>";
+                if ($row["tanggal_sampai"] === null){
+                  echo "<td>".$row["status"]."</td>";
+                } else {
+                  echo "<td>Sampai di penerima</td>";
+                };
                 echo "<td>".$row["status_barang"]."</td>";
                 echo '<td>
                         <button class="btn btn-primary btn-sm btn-edit">Edit</button>
