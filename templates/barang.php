@@ -197,7 +197,14 @@
                      
             <div class="mb-2">
               <label for="status" class="form-label">Status Barang:</label>
-              <input type="text" class="form-control" id="status" name="status_barang"  >
+              <select class="form-select" id="status" name="status_barang">
+                        
+                        <option value=""></option>
+                        <option value="Dikirim ke gudang">Dikirim ke gudang</option>
+                        <option value="Sampai di gudang">Sampai di gudang</option>
+                        <option value="Dikirim ke penerima">Dikirim ke penerima</option>
+                        <option value="Sampai di penerima">Sampai di penerima</option>
+                      </select>
             </div>           
           </div>
         </div>

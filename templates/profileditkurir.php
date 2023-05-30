@@ -22,6 +22,41 @@
     *{
       /* border: 1px solid black;  */
     }
+    *{
+      /* border: 1px solid black;  */
+      text-decoration: none !important;
+
+    }
+
+    .profil-judul {
+  font-size: 30px;
+}
+
+.profil-container {
+  background-color: #fff;
+  padding: 20px 10px;
+  border-radius: 30px;
+  width: 400px;
+  box-shadow: 0px 0px 0px 2px rgba(11, 136, 219, 0.2);
+}
+
+.modal-split {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.left-column {
+  width: 47%;
+}
+
+.right-column {
+  width: 47%;
+}
+
+.btn-primary {
+  border-radius: 15px !important;
+}
   </style>
   <body>
   <?php include '../connector/con_myjob.php'; ?>
@@ -60,7 +95,7 @@
     </div>
 
     <h5 class="text-center mt-3"  id="editModalLabel">Edit Profil</h5>
-<div class="profil container-fluid bg-white w-75 m-auto mt-5">
+<div class="profil-container container-fluid bg-white w-75 m-auto mt-5">
 
   <form id="editAIDI" class="modal-dialog" action="../connector/profiledit.php" method="post">
     <div class="modal-content">
